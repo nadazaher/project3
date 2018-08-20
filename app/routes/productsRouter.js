@@ -8,4 +8,10 @@ productsRouter.get('/',
   (req, res) => res.json(res.locals.products),
 );
 
+productsRouter.get('/:id',
+  productsController.getOneProduct,
+  (req, res) => res.json({ product: res.locals.product })
+);
+
+
 module.exports = productsRouter;

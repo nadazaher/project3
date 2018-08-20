@@ -7,5 +7,12 @@ companiesRouter.get('/',
     (req, res) => res.json({companies: res.locals.companies})
 );
 
+companiesRouter.get('/:id', 
+    companiesController.getOneCompany, 
+    (req, res) => res.json({company: res.locals.company})
+);
+
+
+
 
 module.exports = companiesRouter;

@@ -1,7 +1,5 @@
-\c conglomerates_dev
-
-DROP TABLE IF EXISTS companies;
 DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS companies;
 
 CREATE TABLE companies (
     id SERIAL PRIMARY KEY,
@@ -15,7 +13,7 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     company_id INT REFERENCES companies(id),
     name VARCHAR(255) NOT NULL,
-    MSRP TEXT,
+    msrp TEXT,
     logo TEXT
 );
 

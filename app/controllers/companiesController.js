@@ -10,4 +10,13 @@ module.exports = {
             })
             .catch(next);
     },
+
+    getOneCompany(req, res, next) {
+        db.findOneCompany(req.params.id)
+            .then((company) => {
+                res.locals.company = company;
+                next();
+            })
+            .catch(next);
+    }
 }
