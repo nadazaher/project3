@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import CompanyView from './components/CompanyView';
+import CompanyInfoPage from './components/CompanyInfoPage';
 
 class App extends Component {
   constructor(props) {
