@@ -19,6 +19,11 @@ productsRouter.post('/',
   (req, res) => res.json({ product: res.locals.data }),
 );
 
+productsRouter.delete('/:id',
+  productsController.deleteProduct,
+  (req, res) => res.json(res.locals.products),
+);
+
 
 module.exports = productsRouter;
 

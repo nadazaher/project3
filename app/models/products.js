@@ -38,4 +38,10 @@ module.exports = {
     `, product);
   },
 
+  delete(id) {
+    return db.none(`
+    DELETE FROM products
+    WHERE id = $1`, id);
+},
+
 };
