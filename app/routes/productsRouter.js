@@ -24,8 +24,11 @@ productsRouter.delete('/:id',
   (req, res) => res.json(res.locals.products),
 );
 
+productsRouter.put('/:id',
+  productsController.updateProduct,
+  (req, res) => res.json({ product: res.locals.data }),
+);
 
 module.exports = productsRouter;
 
 
-// res.locals.data = newProduct;
