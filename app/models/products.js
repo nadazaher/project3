@@ -44,4 +44,12 @@ module.exports = {
     WHERE id = $1`, id);
 },
 
+update(product){
+  return db.one(`
+  UPDATE products
+  SET 
+  company_id = $/company_id/, name = $/name/, msrp = $/msrp/, logo = $/logo/
+  WHERE id = $/id/
+  RETURNING *`, product);
+}
 };
