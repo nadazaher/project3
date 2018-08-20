@@ -19,10 +19,11 @@ class CompanyInfoPage extends Component {
         <hr />
         <p> Products </p>
         <hr />
+        {console.log(this.props.products)}
         {
           this.props.productList.map((product, idx) =>
             this.state.productIsEditing === product ? (
-              <div key={author.product}>
+              <div key={idx}>
                 <input name="productName" value={this.state.productName} type="text" onChange={this.handleChange} />
                 <button value={product} onClick={((e) => {
                   e.preventDefault();
