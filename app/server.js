@@ -15,10 +15,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 // the cors middleware is needed in order to process
 // http requests from a different "origin" than the one
 // associated with our express server
 app.use(cors());
+
 
 // routers for the app's two resources
 app.use('/companies', companiesRouter);

@@ -28,4 +28,28 @@ module.exports = {
     );
   },
 
+  addNewProduct(product) {
+    return db.one(`
+    INSERT INTO products
+    (company_id, name, msrp, logo)
+    VALUES
+    ($/company_id/, $/name/, $/msrp/, $/logo/)
+    RETURNING *
+    `, product);
+  },
+
+  delete(id) {
+    return db.none(`
+    DELETE FROM products
+    WHERE id = $1`, id);
+},
+
+update(product){
+  return db.one(`
+  UPDATE products
+  SET 
+  company_id = $/company_id/, name = $/name/, msrp = $/msrp/, logo = $/logo/
+  WHERE id = $/id/
+  RETURNING *`, product);
+}
 };
