@@ -13,7 +13,8 @@ app.use(logger('dev'));
 // these two bodyParser middlewares are needed
 // to accept json and edit/delete requests from the client
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // the cors middleware is needed in order to process
 // http requests from a different "origin" than the one

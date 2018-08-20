@@ -12,26 +12,26 @@ class App extends Component {
       currentView: "company page",
       companies: [],
       currentCompany: "",
-      productList: []
+      products: []
     }
   }
 
-componentDidMount() {
-  fetchCompanies()
-  .then(data => this.setState({ companies: data.companies}))
+  componentDidMount() {
+    fetchCompanies()
+      .then(data => this.setState({ companies: data.companies }));
 
-  fetchProducts()
-  .then(data => this.setState({ companies: data.products}))
-}
+    fetchProducts()
+      .then(data => this.setState({ products: data }));
+  }
 
   pageView() {
     const { currentView } = this.state;
 
     switch (currentView) {
       case "company index":
-      return <CompanyView companies={this.state.companies} />;
+        return <CompanyView companies={this.state.companies} />;
       case "company page":
-        return <CompanyInfoPage productList={this.state.productList}/>;
+        return <CompanyInfoPage products={this.state.products} />;
       // case 'product index':
       //   return <ProductView />;
       // default:
