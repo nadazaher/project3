@@ -28,4 +28,16 @@ module.exports = {
       })
       .catch(e => next(e));
   },
+
+  deleteProduct(req, res, next) {
+    console.log('nada delete');
+      db.delete(req.params.id)
+          .then(() => {
+            next();
+          })
+          .catch((e) => {
+            res.sendStatus(400);
+          })
+        },
+
 };

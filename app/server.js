@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // associated with our express server
 app.use(cors());
 
+
 // routers for the app's two resources
 app.use('/companies', companiesRouter);
 app.use('/products', productsRouter);
