@@ -1,5 +1,3 @@
-\c conglomerates_dev
-
 DELETE FROM companies;
 INSERT INTO companies (name, date_founded, stock_symbol, logo) VALUES
 
