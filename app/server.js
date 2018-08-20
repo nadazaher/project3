@@ -3,8 +3,8 @@ const app = require('express')();
 const logger = require('morgan');
 // const bodyParser = require('body-parser');
 
-// const bookRouter = require('./routes/Books');
-// const authorRouter = require('./routes/Authors');
+const companiesRouter = require('./routes/companiesRouter');
+const productsRouter = require('./routes/productsRouter');
 
 const PORT = 3001;
 
@@ -21,7 +21,11 @@ app.use(logger('dev'));
 app.use(cors());
 
 // routers for the app's two resources
-// app.use('/books', bookRouter);
-// app.use('/authors', authorRouter);
+app.use('/companies', companiesRouter);
+app.use('/products', productsRouter);
+
+// app.get('/', (req,res) => { 
+//     res.send("Hello World")
+// });
 
 app.listen(PORT, () => console.log('listening on port: ', PORT));
