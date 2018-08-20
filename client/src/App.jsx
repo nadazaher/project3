@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import CompanyView from './components/CompanyView';
 import CompanyInfoPage from './components/CompanyInfoPage';
+import ProductPage from './components/ProductPage';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <CompanyView companies={this.state.companies}/>
+        
 
       </div>
     );
