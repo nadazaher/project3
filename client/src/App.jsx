@@ -20,7 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <CompanyView />
+        <CompanyView companies={this.state.companies}/>
+
       </div>
     );
   }
