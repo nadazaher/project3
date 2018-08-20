@@ -19,7 +19,13 @@ module.exports = {
       .catch(next);
   },
 
-  
-
-
-}
+  createNewProduct(req, res, next) {
+    console.log(req.body);
+    db.addNewProduct(req.body)
+      .then((product) => {
+        res.locals.data = product;
+        next();
+      })
+      .catch(e => next(e));
+  },
+};
