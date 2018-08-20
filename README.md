@@ -23,9 +23,9 @@ DELETE:
 
 ## Wireframe
 ![landing](https://media.git.generalassemb.ly/user/14932/files/0e43ab78-a3d4-11e8-99d5-0f6e62e2a39e)
-![product search](https://media.git.generalassemb.ly/user/14932/files/1006adb6-a3d4-11e8-8514-08e678b027ef)
 ![company search](https://media.git.generalassemb.ly/user/14932/files/12004df2-a3d4-11e8-9f37-a8ed19c8fad7)
 ![company info](https://media.git.generalassemb.ly/user/14932/files/13c5a70e-a3d4-11e8-9434-cc9c25a92553)
+![product search](https://media.git.generalassemb.ly/user/14932/files/1006adb6-a3d4-11e8-8514-08e678b027ef)
 
 ## Further Description 
 This website is designed for young, curious consumers who are also looking to invest in products they generally like and use most often. The goal is for a user to be able to search for a product and find out which conglomerate makes it and vice versa. By knowing the source of his/her products, user can then see a detailed description of the company's stock info and status. Based on that, user can make a more informed decision on whether to invest or not. We also allow users to add/delete/edit products to/from specific conglomerates. 
