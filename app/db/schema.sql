@@ -1,39 +1,39 @@
+-- DROP TABLE IF EXISTS favorites;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS companies;
-DROP TABLE IF EXISTS favorites;
-DROP TABLE IF EXISTS users;
 
 CREATE TABLE companies (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description TEXT DEFAULT '',
-    industry VARCHAR(255) DEFAULT '',
-    headquarters VARCHAR(255) DEFAULT '',
-    date_founded INT DEFAULT 1066,
-    stock_symbol VARCHAR(255) DEFAULT '', 
-    logo TEXT DEFAULT ''
-    );
+    description TEXT,
+    industry VARCHAR(255),
+    headquarters VARCHAR(255),
+    date_founded INT,
+    stock_symbol VARCHAR(255),
+    logo TEXT
+);
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
-    company_id INT REFERENCES companies(id) DEFAULT '',
+    company_id INT REFERENCES companies(id),
     name VARCHAR(255) NOT NULL,
     product_type VARCHAR (255),
-    msrp TEXT DEFAULT '',
-    logo TEXT DEFAULT ''
+    msrp TEXT,
+    logo TEXT 
 );
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL DEFAULT '',
-    password_digest VARCHAR(255) NOT NULL DEFAULT ''
-)
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password_digest VARCHAR(255) NOT NULL
+);
 
-CREATE TABLE favorites (
-    id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(id),
-    product_id INT REFERENCES products(id)
-)
+-- CREATE TABLE favorites (
+--     id SERIAL PRIMARY KEY,
+--     user_id INT REFERENCES users(id),
+--     product_id INT REFERENCES products(id)
+-- )
 
 
 
