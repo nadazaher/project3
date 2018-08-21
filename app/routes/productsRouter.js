@@ -30,5 +30,3 @@ productsRouter.put('/:id',
 );
 
 module.exports = productsRouter;
-
-

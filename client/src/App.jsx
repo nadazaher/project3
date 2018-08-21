@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       currentView: "company page",
       companies: [],
-      currentCompany: "",
+      currentCompany: "PepsiCo",
       products: []
     }
   }
@@ -31,7 +31,7 @@ class App extends Component {
       case "company index":
         return <CompanyView companies={this.state.companies} />;
       case "company page":
-        return <CompanyInfoPage products={this.state.products} />;
+        return <CompanyInfoPage products={this.state.products} filterInput={this.state.currentCompany} />;
       // case 'product index':
       //   return <ProductView />;
       // default:
