@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ProductPage extends Component {
+class ProductView extends Component {
     constructor(props) {
         super(props);
         this.state= {
@@ -29,4 +29,4 @@ class ProductPage extends Component {
 
 }
 
-export default ProductPage;
+export default ProductView;
