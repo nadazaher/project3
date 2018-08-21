@@ -21,7 +21,13 @@ function CompanyInfoPage(props) {
       <hr />
       <p> Products </p>
       <hr />
-      <ProductList products={props.products} filterFN={((product => product.company === props.currentCompany.name))} handleProductLink={props.handleProductLink} />
+      <ProductList
+        products={props.products}
+        filterFN={((product => product.company === props.currentCompany.name))}
+        handleProductLink={props.handleProductLink}
+        deleteProduct={props.deleteProduct}
+        updateProduct={props.updateProduct}
+      />
     </div >
   )
 }
