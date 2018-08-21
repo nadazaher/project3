@@ -56,6 +56,16 @@ class App extends Component {
     })
   }
 
+
+
+
+
+
+
+
+
+
+  
   pageView() {
     const { currentView } = this.state;
 
