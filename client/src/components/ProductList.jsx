@@ -28,7 +28,7 @@ class ProductList extends Component {
         this.state.productIsEditing === product.id
           ?
           // displaying an inline editing form
-          (<div className="columns" key={product.id}>
+          (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
             <div className="column is-one-fourth" ><input name="productURL" value={this.state.productURL} type="text" onChange={this.handleChange} /></div>
             <div className="column is-one-fourth" ><input name="productName" value={this.state.productName} type="text" onChange={this.handleChange} /></div>
             <div className="column is-one-fourth" ><input name="productMSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} /></div>
