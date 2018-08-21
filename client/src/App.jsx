@@ -5,7 +5,7 @@ import CompanyView from './components/CompanyView';
 import CompanyInfoPage from './components/CompanyInfoPage';
 import LandingPage from './components/LandingPage';
 import ProductView from './components/ProductView';
-import { fetchCompanies, fetchProducts } from './services/api';
+import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct } from './services/api';
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +25,9 @@ class App extends Component {
     this.handleLinks = this.handleLinks.bind(this);
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
     this.handleProductLink = this.handleProductLink.bind(this);
+    this.createProduct = this.createProduct.bind(this);
+    this.updateProduct = this.updateProduct.bind(this);
+    this.deleteProduct = this.deleteProduct.bind(this);
   }
 
   componentDidMount() {
@@ -56,26 +59,53 @@ class App extends Component {
     })
   }
 
+  createProduct(product) {
+    saveProduct(product)
+      .then(data => fetchProducts())
+      .then(data => {
+        this.setState({ products: data });
+      });
+  }
 
+  updateProduct(product) {
+    modifyProduct(product)
+      .then(data => fetchProducts())
+      .then(data => {
+        this.setState({ products: data });
+      })
 
+  }
+  deleteProduct(product) {
+    destroyProduct(product)
+      .then(data => fetchProducts())
+      .then(data => {
+        this.setState({ products: data });
+      })
+  }
 
-
-
-
-
-
-
-  
   pageView() {
     const { currentView } = this.state;
 
     switch (currentView) {
       case 'companies index':
-        return <CompanyView companies={this.state.companies} handleCompanyLink={this.handleCompanyLink} />;
+        return <CompanyView
+          companies={this.state.companies}
+          handleCompanyLink={this.handleCompanyLink}
+        />;
       case 'company page':
-        return <CompanyInfoPage products={this.state.products} currentCompany={this.state.currentCompany} handleProductLink={this.handleProductLink}/>;
+        return <CompanyInfoPage
+          products={this.state.products}
+          currentCompany={this.state.currentCompany}
+          handleProductLink={this.handleProductLink}
+          deleteProduct={this.deleteProduct}
+          updateProduct={this.updateProduct}
+        />;
       case 'products index':
-        return <ProductView />;
+        return <ProductView
+          deleteProduct={this.deleteProduct}
+          updateProduct={this.updateProduct}
+          createProduct={this.createProduct}
+        />;
       default:
         return <LandingPage />;
     }
@@ -84,7 +114,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header handleLinks={this.handleLinks}/>
+        <Header handleLinks={this.handleLinks} />
         {this.pageView()}
       </div>
     );

@@ -34,8 +34,8 @@ class ProductList extends Component {
             <div className="column is-one-fourth" ><input name="productMSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} /></div>
             <div className="column is-one-fourth" ><button value={product.id} onClick={((e) => {
               e.preventDefault();
-              // const { productName } = this.state;
-              // this.props.updateProduct({ ...product, productName });
+              const { productName, productURL, productMSRP } = this.state;
+              this.props.updateProduct({ ...product, name: productName, logo: productURL, msrp: productMSRP });
               // reseting the state back to null/empty from "edit" button event listener
               this.setState({
                 productURL: '',
@@ -67,7 +67,7 @@ class ProductList extends Component {
             } > Edit </button></div>
             <div className="column is-one-fifth"><button value={product.id} onClick={((e) => {
               e.preventDefault();
-              // this.props.handleDelete(e.target.value);
+              this.props.deleteProduct(e.target.value);
             })}>Delete</button></div>
           </div>
           )
