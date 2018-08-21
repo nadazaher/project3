@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import CompanyView from './components/CompanyView';
 import CompanyInfoPage from './components/CompanyInfoPage';
-import ProductPage from './components/ProductPage';
+import ProductView from './components/ProductView';
 import { fetchCompanies, fetchProducts } from './services/api';
 
 class App extends Component {
