@@ -11,7 +11,13 @@ class App extends Component {
     this.state = {
       currentView: "company page",
       companies: [],
-      currentCompany: "PepsiCo",
+      currentCompany: {
+        "id": 1,
+        "name": "PepsiCo",
+        "date_founded": 1898,
+        "stock_symbol": "https://www.nasdaq.com/symbol/pep",
+        "logo": "http://purepng.com/public/uploads/large/purepng.com-pepsico-logologobrand-logoiconslogos-251519939772eazsw.png"
+    },
       products: []
     }
   }
@@ -31,15 +37,13 @@ class App extends Component {
       case "company index":
         return <CompanyView companies={this.state.companies} />;
       case "company page":
-        return <CompanyInfoPage products={this.state.products} filterInput={this.state.currentCompany} />;
+        return <CompanyInfoPage products={this.state.products} currentCompany={this.state.currentCompany} />;
       // case 'product index':
       //   return <ProductView />;
       // default:
       //   return <LandingPage />;
     }
   }
-
-
 
   render() {
     return (
