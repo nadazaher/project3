@@ -3,36 +3,29 @@ const { db } = require('../config/connection');
 
 module.exports = {
 
-    function register(username, password) {
-    return bcrypt.hash(password, 8)
-        .then((hash) => {
-            return db.one(`
-          INSERT INTO users (username, password_digest)
-          VALUES ($/username/, $/password_digest/)
-          RETURNING *
-        `, { username, password_digest: hash, });
-        });
-},
-
-function findByUsername(username) {
+  create(userData) {
+    const passwordDigest = bcrypt.hashSync(userData.password, 10);
     return db.one(`
-      SELECT * FROM users
-      WHERE username = $1
-    `, username);
-},
+        INSERT INTO users (username, password_digest)
+        VALUES ($1, $2)
+        RETURNING *;
+      `, [userData.username, passwordDigest]);
+  },
 
-function login(username, password) {
-    return findByUsername(username)
-        .then((user) => {
-            return bcrypt.compare(password, user.password_digest)
-                .then((res) => {
-                    if (!res) throw new Error('bad password');
-                    delete user.password_digest;
-                    return user;
-                });
-        })
-        .catch(() => {
-            throw new Error('Unauthorized');
-        });
-}
-}
+  findByUsername(username) {
+    return db.one(`
+        SELECT *
+        FROM users
+        WHERE username=$1;
+      `, username);
+  },
+
+  login(user) {
+    return this.findByUsername(user.username)
+      .then((userData) => {
+        const isAuthed = bcrypt.compareSync(user.password, userData.password_digest);
+        if (!isAuthed) throw new Error('Invalid');
+        return userData;
+      });
+  },
+};
