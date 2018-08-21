@@ -8,14 +8,14 @@ function CompanyView(props) {
       <div className="column">
         {
           props.companies.map((company, idx) => (
-            (!(idx % 2) ? (<div className="column is-one-half" key={company.id}> <figure className="image is-one-half"><img src={company.logo} /></figure> </div>) : (""))
+            (!(idx % 2) ? (<div className="column is-one-half" key={company.id} onClick={() => props.handleCompanyLink('company page', company)} > <figure className="image is-one-half"><img src={company.logo} /></figure> </div>) : (""))
           ))
         }
       </div>
       <div className="column">
         {
           props.companies.map((company, idx) => (
-            ((idx % 2) ? (<div className="column is-one-half" key={company.id}> <img src={company.logo} /> </div>) : (""))
+            ((idx % 2) ? (<div className="column is-one-half" key={company.id} onClick={() => props.handleCompanyLink('company page', company)}> <img src={company.logo} /> </div>) : (""))
           ))
         }
       </div>
