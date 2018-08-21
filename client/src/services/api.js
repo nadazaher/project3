@@ -32,7 +32,7 @@ export function saveProduct(Product) {
     });
 }
 
-export function updateProduct(Product) {
+export function modifyProduct(Product) {
   const opts = {
     method: 'PUT',
     body: JSON.stringify(Product),
@@ -48,12 +48,12 @@ export function updateProduct(Product) {
     });
 }
 
-export function saveProduct(Product) {
+export function destroyProduct(Product) {
   const opts = {
     method: 'DELETE'
     }
 
-  return fetch(`${BASE_URL}/Products/${Product.id}`, opts)
+  return fetch(`${BASE_URL}/Products/${Product}`, opts)
   .catch(err => {
     throw Error(err);
   });

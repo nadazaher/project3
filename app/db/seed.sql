@@ -64,4 +64,3 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '$3',
 'https://4.imimg.com/data4/HH/NV/GLADMIN-16687741/1-500x500.jpg'
 );
-
