@@ -8,6 +8,7 @@ module.exports = {
         SELECT p.id AS id,
         c.name AS company,
         p.name AS name,
+        p.product_type AS product_type,
         p.msrp AS msrp,
         p.logo AS logo
         FROM products p
@@ -20,6 +21,7 @@ module.exports = {
     SELECT p.id AS id,
     c.name AS company,
     p.name AS name,
+    p.product_type AS product_type,
     p.msrp AS msrp,
     p.logo AS logo
     FROM products p
@@ -31,9 +33,9 @@ module.exports = {
   addNewProduct(product) {
     return db.one(`
     INSERT INTO products
-    (company_id, name, msrp, logo)
+    (company_id, name, product_type, msrp, logo)
     VALUES
-    ($/company_id/, $/name/, $/msrp/, $/logo/)
+    ($/company_id/, $/name/, $/product_type/, $/msrp/, $/logo/)
     RETURNING *
     `, product);
   },
@@ -48,7 +50,7 @@ update(product){
   return db.one(`
   UPDATE products
   SET 
-  company_id = $/company_id/, name = $/name/, msrp = $/msrp/, logo = $/logo/
+  company_id = $/company_id/, name = $/name/, product_type = $/product_type/, msrp = $/msrp/, logo = $/logo/
   WHERE id = $/id/
   RETURNING *`, product);
 }
