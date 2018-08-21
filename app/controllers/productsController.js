@@ -42,11 +42,12 @@ module.exports = {
 
   updateProduct(req, res, next) {
     const { id } = req.params.id
-    const { company_id, name, msrp, logo } = req.body;
+    const { company_id, name, product_type, msrp, logo } = req.body;
     const modifiedProduct = {
       id: req.params.id,
       company_id,
       name,
+      product_type,
       msrp,
       logo
     };
