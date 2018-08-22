@@ -51,6 +51,7 @@ class ProductView extends Component {
           <input name="productURL" placeholder="Logo URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
           <input name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} />
           <input name="productMSRP" placeholder="MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />
+          <button>Submit</button>
         </div>
       </div>
     )
