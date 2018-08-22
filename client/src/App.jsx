@@ -17,13 +17,7 @@ class App extends Component {
       products: [],
       companies: [],
       userInfo: null,
-      currentCompany: {
-        "id": 1,
-        "name": "PepsiCo",
-        "date_founded": 1898,
-        "stock_symbol": "https://www.nasdaq.com/symbol/pep",
-        "logo": "http://purepng.com/public/uploads/large/purepng.com-pepsico-logologobrand-logoiconslogos-251519939772eazsw.png"
-      },
+      currentCompany: null,
     }
     this.handleLinks = this.handleLinks.bind(this);
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
@@ -33,7 +27,6 @@ class App extends Component {
     this.deleteProduct = this.deleteProduct.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit=this.handleRegisterSubmit.bind(this);
-    
   }
 
   componentDidMount() {

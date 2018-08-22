@@ -29,3 +29,7 @@
   height: 70vh;
   overflow: scroll;
 }
+
+.big-image {
+ max-height: 157px;
+}

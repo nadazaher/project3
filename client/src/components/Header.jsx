@@ -4,9 +4,10 @@ function Header(props) {
   return (
     <div>
       <div className="navbar header">
-        <h1 className="navar-item">Who makes my Product?</h1>
+        <h1 className="navbar-item">One Big Ten</h1>
         <div className="navbar-end">
-          {window.localStorage.getItem("username") ?
+          {window.localStorage.getItem("username")
+          ?
             (<div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">{window.localStorage.getItem("username")}
           </a>
@@ -18,7 +19,7 @@ function Header(props) {
               </div>
             </div>)
             :
-            (<div onClick={() => props.handleLinks('login page')}className="navbar-item">Login</div>)
+            (<div onClick={() => props.handleLinks('login page')} className="navbar-item">Login</div>)
           }
         </div>
 

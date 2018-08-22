@@ -2,27 +2,21 @@ import React, { Component } from 'react';
 
 class Register extends Component {
     constructor(props) {
-        super (props);
+        super(props);
 
-    this.state = {
-        username: '',
-        password: ''
-    };
+        this.state = {
+            username: '',
+            password: ''
+        };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleSubmit(ev) {
-        ev.preventDefault();
-        this.props.onSubmit(this.state);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(ev) {
-        const { name, value} = ev.target;
+        const { name, value } = ev.target;
         this.setState({
-            [name] : value
-    });
+            [name]: value
+        });
     }
 
     render() {
@@ -38,23 +32,24 @@ class Register extends Component {
                     this.props.handleLinks('landing page');
                 }
                 }>
-                <input 
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={this.state.username}
-                    onChange={this.handleChange}/>
-                <input 
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.handleChange}/>
-                <input type="submit" value="Submit" />
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={this.state.username}
+                        onChange={this.handleChange} />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.password}
+                        onChange={this.handleChange} />
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
-        )};
-    }
+        )
+    };
+}
 
 export default Register;
 

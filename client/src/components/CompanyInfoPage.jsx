@@ -7,7 +7,7 @@ function CompanyInfoPage(props) {
     <div>
       <div className="columns">
         <div className="column">
-          <figure className="image is-400x400">
+          <figure className="image">
             <img src={props.currentCompany.logo} />
           </figure>
           <div>{props.currentCompany.description}</div>
