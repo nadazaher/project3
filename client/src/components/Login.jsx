@@ -12,6 +12,8 @@ class Login extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    //use same comments from Register.jsx
+
     handleChange(ev) {
         const { name, value } = ev.target;
         this.setState({

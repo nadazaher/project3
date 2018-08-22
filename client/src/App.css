@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+/* // vh = viewheight */
+/* // need to fix a height so scrolling works fine */
 .header{
   height: 10vh;
   border-bottom: 1px solid black;

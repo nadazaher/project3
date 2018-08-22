@@ -1,5 +1,6 @@
 const BASE_URL = 'http://localhost:3001';
 
+//dont need ,opts because GET is the default
 export function fetchCompanies() {
   return fetch(`${BASE_URL}/companies`)
     .then(resp => resp.json())
@@ -24,7 +25,8 @@ export function saveProduct(Product) {
       'Content-Type': 'application/json'
     }
   };
-
+  
+// need ,opts for anything thats not GET 
   return fetch(`${BASE_URL}/Products`, opts)
     .then(resp => resp.json())
     .catch(err => {
@@ -67,7 +69,7 @@ export function loginUser(userInfo) {
       'Content-Type': 'application/json'
     }
   };
-
+// notice the corret url path
   return fetch(`${BASE_URL}/auth/login`, opts)
   .then(resp => resp.json())
   .catch(err => {
@@ -84,6 +86,7 @@ export function registerUser(userInfo) {
     }
   };
 
+  // notice the corret url path
   return fetch(`${BASE_URL}/auth/register`, opts)
   .then(resp => resp.json())
   .catch(err => {

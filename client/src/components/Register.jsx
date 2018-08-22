@@ -10,14 +10,11 @@ class Register extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(ev) {
-        ev.preventDefault();
-        this.props.onSubmit(this.state);
-    }
+//use same comments for Login.jsx
 
+// deconstruct [name] to = username and password out of target - so name and value taken from input in form
     handleChange(ev) {
         const { name, value} = ev.target;
         this.setState({
@@ -31,10 +28,14 @@ class Register extends Component {
                 <h2> New User Registration </h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
+                    // using this.props of this function because we gave it props in app.jsx switch function 
                     this.props.handleRegisterSubmit(
+
+                        // using this.state because we set state above
                         this.state.username,
                         this.state.password
                     );
+                    // rerenders back to landing pag
                     this.props.handleLinks('landing page');
                 }
                 }>
