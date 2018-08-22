@@ -18,7 +18,7 @@ function Header(props) {
               </div>
             </div>)
             :
-            (<div className="navbar-item">Login</div>)
+            (<div onClick={() => props.handleLinks('login page')}className="navbar-item">Login</div>)
           }
         </div>
 
