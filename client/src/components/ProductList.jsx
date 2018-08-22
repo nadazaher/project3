@@ -26,7 +26,7 @@ class ProductList extends Component {
   render() {
     return (
       <div className="scrollable">
-         {/* filtering through the array of products either by company of user input depending on the provided function
+        {/* filtering through the array of products either by company of user input depending on the provided function
          then mapping through the results to display either the data or an inline edit form */}
         {this.props.products.filter(this.props.filterFN).map((product) =>
           // checking if productIsEditing variable from state is truthy or falsey
@@ -83,17 +83,17 @@ class ProductList extends Component {
               })
               } >  <FontAwesomeIcon icon="pencil-alt" />
 
-               </button></div>
+              </button></div>
 
-            {/* // creating delete button */}
+              {/* // creating delete button */}
               <div className="column is-one-sixth"><button className="edit-delete-button" value={product.id} onClick={((e) => {
                 e.preventDefault();
-
-           // stopPropogation keeps the event from following the click that happens to the entire div
+                // stopPropogation keeps the event from following the click that happens to the entire div
                 e.stopPropagation();
-            // takes id of product and deletes it from database
-                this.props.deleteProduct(e.target.value);
-              })}><FontAwesomeIcon icon="trash-alt"/></button></div>
+                // takes id of product and deletes it from database
+                debugger;
+                this.props.deleteProduct(product.id);
+              })}><FontAwesomeIcon icon="trash-alt" /></button></div>
             </div>
             )
         )}

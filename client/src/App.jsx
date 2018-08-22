@@ -26,7 +26,7 @@ class App extends Component {
     this.updateProduct = this.updateProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
-    this.handleRegisterSubmit=this.handleRegisterSubmit.bind(this);
+    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
   }
 
   // default for React - when App loads synchronously make all these funcitions - get products and get companies - change setState when page loads to have data - this function never gets called
@@ -53,7 +53,7 @@ class App extends Component {
         this.setState({
           userInfo: { id: data.id, username: data.username }
         });
-        localStorage.setItem( 'token', data.token);
+        localStorage.setItem('token', data.token);
       });
   }
 
@@ -63,9 +63,9 @@ class App extends Component {
         this.setState({
           userInfo: { id: data.id, username: data.username }
         });
-        window.localStorage.setItem( "token", data.token);
+        window.localStorage.setItem("token", data.token);
       });
-  } 
+  }
 
   // similar to handleLinks but handleCompanyLink allows you to take in ('desirec view', company ) to know which company to display - passed 2nd variable company from map function -- notice currentCompany is set as nul; in this.state above
   handleCompanyLink(viewName, company) {
@@ -74,7 +74,7 @@ class App extends Component {
       currentCompany: company
     })
   }
-// when you click on the whole div of the product, it should then take the respective name of the company to find the one that equals to the ones we passed - then takes you to the company page - parameter companyName couldve been called anything
+  // when you click on the whole div of the product, it should then take the respective name of the company to find the one that equals to the ones we passed - then takes you to the company page - parameter companyName couldve been called anything
 
   handleProductLink(viewName, companyName) {
     const company = this.state.companies.find((company) => company.name === companyName);
@@ -95,7 +95,7 @@ class App extends Component {
         this.setState({ products: data });
       });
   }
-  
+
   updateProduct(product) {
     modifyProduct(product)
       .then(data => fetchProducts())
@@ -119,14 +119,14 @@ class App extends Component {
     switch (currentView) {
       case 'login page':
         return <Login
-        handleLinks={this.handleLinks}
-        handleLoginSubmit={this.handleLoginSubmit}
+          handleLinks={this.handleLinks}
+          handleLoginSubmit={this.handleLoginSubmit}
         />;
 
       case 'register page':
         return <Register
-        handleLinks={this.handleLinks}
-        handleRegisterSubmit={this.handleRegisterSubmit}
+          handleLinks={this.handleLinks}
+          handleRegisterSubmit={this.handleRegisterSubmit}
         />;
 
       case 'companies index':
@@ -144,6 +144,7 @@ class App extends Component {
         />;
       case 'products index':
         return <ProductView
+          companies={this.state.companies}
           products={this.state.products}
           handleProductLink={this.handleProductLink}
           deleteProduct={this.deleteProduct}
@@ -162,6 +163,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header
+          userInfo={this.state.userInfo}
           handleLinks={this.handleLinks}
           handleLoginClick={this.handleLoginClick}
         />
