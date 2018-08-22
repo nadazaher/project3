@@ -27,7 +27,6 @@ class App extends Component {
     this.deleteProduct = this.deleteProduct.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleRegisterSubmit=this.handleRegisterSubmit.bind(this);
-    
   }
 
   // default for React - when App loads synchronously make all these funcitions - get products and get companies - change setState when page loads to have data - this function never gets called

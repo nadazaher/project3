@@ -7,7 +7,7 @@ function CompanyInfoPage(props) {
     <div>
       <div className="columns">
         <div className="column">
-          <figure className="image is-400x400">
+<figure className="image">
   {/* // use .currentCompany because thats how its set in state in app.jsx using props since you are sendind these components down from the state in app.jsx - no need for this.props because its a function not class component */}
             <img src={props.currentCompany.logo} />
           </figure>

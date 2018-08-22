@@ -33,9 +33,7 @@ class ProductList extends Component {
           this.state.productIsEditing === product.id
             ?
             // displaying an inline editing form
-            (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
-
-    
+            (<div className="columns" key={product.id} >
               <div className="column is-one-fourth" ><input name="productURL" value={this.state.productURL} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
               <div className="column is-one-fourth" ><input name="productName" value={this.state.productName} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
               <div className="column is-one-fourth" ><input name="productType" value={this.state.productType} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
@@ -64,14 +62,14 @@ class ProductList extends Component {
             </div>)
             :
             // displaying basic product data with edit button
-            (<div className="columns" key={product.id} >
-              <div className="column is-one-fifth"><figure className="image is-96x96">
+            (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
+              <div className="column is-one-sixth"><figure className="image is-96x96">
                 <img src={product.logo} />
               </figure></div>
-              <div className="column is-one-fifth">{product.name}</div>
-              <div className="column is-one-fifth">{product.product_type}</div>
-              <div className="column is-one-fifth">{product.msrp}</div>
-              <div className="column is-one-fifth"><button value={product.id} onClick={((e) => {
+              <div className="column is-one-sixth">{product.name}</div>
+              <div className="column is-one-sixth">{product.product_type}</div>
+              <div className="column is-one-sixth">{product.msrp}</div>
+              <div className="column is-one-sixth"><button value={product.id} onClick={((e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 // setting specific product data for edit form - edit presets values in input form, setState will allow you to change the state/input in those fields when editing
@@ -84,8 +82,9 @@ class ProductList extends Component {
                 });
               })
               } > Edit </button></div>
+
             {/* // creating delete button */}
-              <div className="column is-one-fifth"><button value={product.id} onClick={((e) => {
+              <div className="column is-one-sixth"><button value={product.id} onClick={((e) => {
                 e.preventDefault();
 
            // stopPropogation keeps the event from following the click that happens to the entire div
