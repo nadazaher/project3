@@ -7,14 +7,17 @@ function CompanyInfoPage(props) {
     <div>
       <div className="columns">
         <div className="column">
-          <figure className="image">
+          <figure className="image is-400x400">
             <img src={props.currentCompany.logo} />
           </figure>
+          <div>{props.currentCompany.description}</div>
         </div>
         <div className="column">
           <div>{props.currentCompany.name}</div>
-          <div>Date founded: {props.currentCompany.date_founded}</div>
-          <div></div>
+          <hr />
+          <div><strong>Date founded:</strong>&nbsp;{props.currentCompany.date_founded}</div>
+          <div><strong>Industry:</strong>&nbsp;{props.currentCompany.industry}</div>
+          <div><strong>Headquarters:</strong>&nbsp;{props.currentCompany.headquarters}</div>
           <div><a href={props.currentCompany.stock_symbol}>Stock info</a></div>
         </div>
       </div>
