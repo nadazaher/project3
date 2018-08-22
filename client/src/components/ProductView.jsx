@@ -9,6 +9,7 @@ class ProductView extends Component {
       filterList: [],
       productURL: '',
       productName: '',
+      productType: '',
       productMSRP: '',
     }
     this.setInput = this.setInput.bind(this);
@@ -50,6 +51,7 @@ class ProductView extends Component {
         <div className="bottom">
           <input name="productURL" placeholder="Logo URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
           <input name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} />
+          <input name="productType" placeholder="Product type" value={this.state.productType} type="text" onChange={this.handleChange} />
           <input name="productMSRP" placeholder="MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />
         </div>
       </div>

@@ -7,6 +7,7 @@ class ProductList extends Component {
     this.state = {
       productURL: '',
       productName: '',
+      productType: '',
       productMSRP: '',
       productIsEditing: null,
     }
@@ -33,16 +34,18 @@ class ProductList extends Component {
             (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
               <div className="column is-one-fourth" ><input name="productURL" value={this.state.productURL} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
               <div className="column is-one-fourth" ><input name="productName" value={this.state.productName} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
+              <div className="column is-one-fourth" ><input name="productType" value={this.state.productType} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
               <div className="column is-one-fourth" ><input name="productMSRP" value={this.state.productMSRP} type="text" onClick={((e) => e.stopPropagation())} onChange={this.handleChange} /></div>
               <div className="column is-one-fourth" ><button value={product.id} onClick={((e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                const { productName, productURL, productMSRP } = this.state;
-                this.props.updateProduct({ ...product, name: productName, logo: productURL, msrp: productMSRP });
-                // reseting the state back to null/empty from "edit" button event listener
+                const { productName, productURL, productType, productMSRP } = this.state;
+                this.props.updateProduct({ ...product, name: productName, product_type: productType, logo: productURL, msrp: productMSRP });
+                // resetting the state back to null/empty from "edit" button event listener
                 this.setState({
                   productURL: '',
                   productName: '',
+                  productType: '',
                   productMSRP: '',
                   productIsEditing: null
                 })
@@ -56,6 +59,7 @@ class ProductList extends Component {
                 <img src={product.logo} />
               </figure></div>
               <div className="column is-one-fifth">{product.name}</div>
+              <div className="column is-one-fifth">{product.product_type}</div>
               <div className="column is-one-fifth">{product.msrp}</div>
               <div className="column is-one-fifth"><button value={product.id} onClick={((e) => {
                 e.preventDefault();
@@ -65,6 +69,7 @@ class ProductList extends Component {
                   productIsEditing: product.id,
                   productURL: product.logo,
                   productName: product.name,
+                  productType: product.product_type,
                   productMSRP: product.msrp,
                 });
               })
