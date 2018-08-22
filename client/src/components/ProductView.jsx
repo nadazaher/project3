@@ -37,7 +37,6 @@ class ProductView extends Component {
   render() {
     return (
       <div>
-        // this allows you to search through 
         <input
           type="text"
           placeholder="Search for a product"
