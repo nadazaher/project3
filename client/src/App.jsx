@@ -5,7 +5,9 @@ import CompanyView from './components/CompanyView';
 import CompanyInfoPage from './components/CompanyInfoPage';
 import LandingPage from './components/LandingPage';
 import ProductView from './components/ProductView';
-import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct } from './services/api';
+import Register from './components/Register';
+import Login from './components/Login';
+import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser } from './services/api';
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class App extends Component {
       currentView: '',
       products: [],
       companies: [],
+      userInfo: null,
       currentCompany: {
         "id": 1,
         "name": "PepsiCo",
@@ -28,6 +31,9 @@ class App extends Component {
     this.createProduct = this.createProduct.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+    this.handleRegisterSubmit=this.handleRegisterSubmit.bind(this);
+    
   }
 
   componentDidMount() {
@@ -43,6 +49,26 @@ class App extends Component {
       currentView: viewName
     })
   }
+
+  handleLoginSubmit(username, password) {
+    loginUser({ "username": username, "password": password })
+      .then(data => {
+        this.setState({
+          userInfo: { id: data.id, username: data.username }
+        });
+        localStorage.setItem( 'token', data.token);
+      });
+  }
+
+  handleRegisterSubmit(username, password) {
+    registerUser({ "username": username, "password": password })
+      .then(data => {
+        this.setState({
+          userInfo: { id: data.id, username: data.username }
+        });
+        window.localStorage.setItem( "token", data.token);
+      });
+  } 
 
   handleCompanyLink(viewName, company) {
     this.setState({
@@ -87,6 +113,18 @@ class App extends Component {
     const { currentView } = this.state;
 
     switch (currentView) {
+      case 'login page':
+        return <Login
+        handleLinks={this.handleLinks}
+        handleLoginSubmit={this.handleLoginSubmit}
+        />;
+
+      case 'register page':
+        return <Register
+        handleLinks={this.handleLinks}
+        handleRegisterSubmit={this.handleRegisterSubmit}
+        />;
+
       case 'companies index':
         return <CompanyView
           companies={this.state.companies}
@@ -116,7 +154,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header handleLinks={this.handleLinks} />
+        <Header
+          handleLinks={this.handleLinks}
+          handleLoginClick={this.handleLoginClick}
+        />
         {this.pageView()}
       </div>
     );
