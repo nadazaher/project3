@@ -2,10 +2,11 @@ import React from 'react';
 
 function Header(props) {
   return (
-    <div>
       <div className="navbar header">
-        <h1 className="navbar-item">One Big Ten</h1>
+
+        <h1 className="navar-item">One Big Ten</h1>
         <div className="navbar-end">
+{/* // here javascript is checking if the user is logged in (if username is in localStorage), if he/she is logged in then user will be able to see the dropdown navbar menu - notice the ternary operator ? :  also we set localStorage in state so it can refresh the page*/ }
           {window.localStorage.getItem("username")
           ?
             (<div className="navbar-item has-dropdown is-hoverable">
@@ -22,7 +23,7 @@ function Header(props) {
             (<div onClick={() => props.handleLinks('login page')} className="navbar-item">Login</div>)
           }
         </div>
-
+{/* //handleLinks is a function that allows you to switch to another view() */}
       </div>
       <div className="columns is-multiline navigation">
         <div className="column is-one-half" onClick={() => props.handleLinks('companies index')}>Companies</div>

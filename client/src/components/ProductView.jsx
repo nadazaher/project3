@@ -18,10 +18,11 @@ class ProductView extends Component {
 
   }
 
+  //defines a filterFn that allows you to search upper or lower case - check if if product name (which is a string) includes what the user is typing - this is being called in productList .map
   filterFN(product) {
     return product.name.toUpperCase().includes(this.state.inputValue.toUpperCase())
   }
-
+  //sets input value in state to value of whats printing out in input field (e.target.value)
   setInput(e) {
     this.setState({ inputValue: e.target.value })
   }
@@ -36,6 +37,7 @@ class ProductView extends Component {
   render() {
     return (
       <div>
+        // this allows you to search through 
         <input
           type="text"
           placeholder="Search for a product"
