@@ -2,6 +2,7 @@ import React from 'react';
 
 function Header(props) {
   return (
+    <div>
       <div className="navbar header">
 
         <h1 className="navar-item">One Big Ten</h1>
