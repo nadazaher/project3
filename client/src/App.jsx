@@ -102,6 +102,8 @@ class App extends Component {
         />;
       case 'products index':
         return <ProductView
+          products={this.state.products}
+          handleProductLink={this.handleProductLink}
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
           createProduct={this.createProduct}

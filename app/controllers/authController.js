@@ -9,16 +9,26 @@ const userModel = require('../models/users.js');
 
 module.exports = {
 
-  register(req, res) {
+  register(req, res, next) {
     userModel.create(req.body)
       .then((user) => {
         delete user.password_digest;
-        return tokenService.makeToken(user);
+        res.locals.user = user;
+        next();
       })
-      .then((token) => {
-        res.json({
-          token,
+      .catch((err) => {
+        res.status(500).json({
+          error: err,
         });
+      });
+  },
+  
+  login(req, res, next) {
+    userModel.login(req.body)
+      .then((user) => {
+        delete user.password_digest;
+        res.locals.user = user;
+        next();
       })
       .catch((err) => {
         res.status(500).json({
@@ -27,16 +37,11 @@ module.exports = {
       });
   },
 
-  login(req, res) {
-    userModel.login(req.body)
-      .then((user) => {
-        delete user.password_digest;
-        return tokenService.makeToken(user);
-      })
+  createToken(req, res, next) {
+    tokenService.makeToken(res.locals.user)
       .then((token) => {
-        res.json({
-          token,
-        });
+        res.locals.token = token;
+        next();
       })
       .catch((err) => {
         res.status(500).json({
@@ -44,4 +49,14 @@ module.exports = {
         });
       });
   },
+
+  SendUserInfo(req, res) {
+    res.json({ ...res.locals.user, token: res.locals.token })
+      .catch((err) => {
+        res.status(500).json({
+          error: err,
+        });
+      });
+  },
+
 };
