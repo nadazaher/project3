@@ -18,6 +18,27 @@ UPDATE:
 DELETE:
 6)	As a user, I would like to delete products from a specific conglomerate. 
 
+## Setup Instructions
+After cloning do
+
+$cd app/
+
+$npm i
+
+$createdb conglomerates_dev
+
+$npm run db:setup
+
+$npm run dev
+
+THEN OPEN ANOTHER TERMINAL AND DO
+
+$cd client/
+
+$yarn install
+
+$yarn start
+
 ## ERD
 ![project 3 erd](https://media.git.generalassemb.ly/user/14932/files/f4c24042-a3d3-11e8-93ef-e1e98ab7535c)
 
