@@ -105,7 +105,7 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '7UP',
 'Lemon-lime drink',
 '$1',
-'https://185606-546971-2-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2009/05/7up-330ml-can.jpg'
+'http://foodstore.payporte.com/media/catalog/product/cache/1/image/363x/040ec09b1e35df139433887a97daa66f/7/u/7up_can_2.jpg'
 ),
 
 (1, 
@@ -134,4 +134,159 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'Ice Cream',
 '$3',
 'https://4.imimg.com/data4/HH/NV/GLADMIN-16687741/1-500x500.jpg'
-);
+),
+
+(3, 
+'Betty Crocker',
+'Baking mix',
+'$2',
+'https://images-na.ssl-images-amazon.com/images/I/91ym88%2BdnrL._SY355_.jpg'),
+
+(3, 
+'Haagen Dazs',
+'Ice cream',
+'$3',
+'https://pics.drugstore.com/prodimg/419630/900.jpg'),
+
+(3, 
+'Lucky Charms',
+'Cereal',
+'$4',
+'https://images-na.ssl-images-amazon.com/images/I/81cccgZf1JL._SY355_.jpg'),
+
+(4, 
+'Cheez-It',
+'Crackers',
+'$4',
+'https://target.scene7.com/is/image/Target/13009781?wid=488&hei=488&fmt=pjpeg'),
+
+(4, 
+'Pop-Tarts',
+'Toaster pastry',
+'$2',
+'https://target.scene7.com/is/image/Target/14895486?wid=1400'),
+
+(4, 
+'Rice Krispies',
+'Cereal',
+'$3',
+'https://images-na.ssl-images-amazon.com/images/I/61C4P84GGOL.jpg'),
+
+(5, 
+'M&Ms',
+'Chocolate candy',
+'$2',
+'http://www.mms.com/Resources/img/nutrition/im-mms.png'),
+
+(5, 
+'Whiskas',
+'Pet food',
+'$5',
+'https://images-na.ssl-images-amazon.com/images/I/61Lce2KTcaL._SY450_.jpg'),
+
+(5, 
+'Juicy Fruit',
+'Gum',
+'$1',
+'https://www.britishcornershop.co.uk/img/large/QWOP1358.jpg'),
+
+(6, 
+'Bengay',
+'Pain relief cream',
+'$5',
+'https://pics.drugstore.com/prodimg/10343/900.jpg'),
+
+(6, 
+'Splenda',
+'Sugar substitute',
+'$6',
+'https://www.jeancoutu.com/catalog-images/212067/viewer/0/splenda-splenda-packets-sweetener-100-units.png'),
+
+(6, 
+'Listerine',
+'Mouthwash',
+'$5',
+'https://images-na.ssl-images-amazon.com/images/I/81EmMm%2BH44L._SY355_.jpg'),
+
+(7, 
+'Pampers',
+'Diapers',
+'$20',
+'https://pics.drugstore.com/prodimg/494808/900.jpg'),
+
+(7, 
+'Tide',
+'Laundry detergent',
+'$8',
+'https://images-na.ssl-images-amazon.com/images/I/81KvbE7oTeL._SL1500_.jpg'),
+
+(7, 
+'Pantene',
+'Hair care',
+'$4',
+'https://pics.drugstore.com/prodimg/406961/900.jpg'),
+
+(8, 
+'Nerds',
+'Candy',
+'$2',
+'https://smhttp-ssl-60529.nexcesscdn.net/pub/media/catalog/product/cache/small_image/320x240/beff4985b56e3afdbeabfc89641a4582/n/e/nerds_surf_and_turf_2.jpg'),
+
+(8, 
+'Perrier',
+'Water',
+'$2',
+'https://naughtygrapett.com/wp-content/uploads/2015/11/perrier-33cl.png'),
+
+(8, 
+'Hot Pockets',
+'Turnover',
+'$2',
+'https://mrsmedia.nestleusa.com/Images/Products/11584_SMLimg.png'),
+
+(9, 
+'Philadelphia',
+'Cream cheese',
+'$3',
+'https://pics.drugstore.com/prodimg/419651/900.jpg'),
+
+(9, 
+'Toblerone',
+'Chocolate',
+'$3',
+'https://odditymall.com/includes/content/upload/giant-10-lb-toblerone-bar-9922.jpg'),
+
+(9, 
+'Planters',
+'Nuts',
+'$3',
+'https://pics.drugstore.com/prodimg/373932/450.jpg'),
+
+(10, 
+'Vitamin Water',
+'Energy drink',
+'$2',
+'https://target.scene7.com/is/image/Target/12953267?wid=488&hei=488&fmt=pjpeg'),
+
+
+(10, 
+'Minute Maid',
+'Juice',
+'$2',
+'https://static.meijer.com/Media/002/50000/0025000047862_a1c1_0600.png'),
+
+(10, 
+'Fanta',
+'Orange carbonated drink',
+'$2',
+'https://www.myamericanmarket.com/9281-large_default/fanta-orange.jpg');
+
+
+
+
+
+
+
+
+
+
