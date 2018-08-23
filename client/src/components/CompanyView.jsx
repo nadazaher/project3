@@ -4,6 +4,8 @@ import React from 'react';
 // two columns
 function CompanyView(props) {
   return (
+    <div className="newscrollable">
+
     <div className="columns is-multiline">
 
     {/* // used map and ternary split the companies in two columns checking if company ID is even or odd */}
@@ -21,6 +23,7 @@ function CompanyView(props) {
           ))
         }
       </div>
+    </div>
     </div>
   )
 }
