@@ -17,7 +17,78 @@ INSERT INTO companies (name, description, industry, headquarters, date_founded, 
 '1930',
 'https://www.nyse.com/quote/XNYS:UN',
 'http://www.stickpng.com/assets/images/5856a7bb4f6ae202fedf276b.png'
-);
+),
+
+('General Mills', 
+'General Mills, Inc., is an American multinational manufacturer and marketer of branded consumer foods sold through retail stores. The company markets many well-known North American brands, including Gold Medal flour, Annie''s Homegrown, Betty Crocker, Yoplait, Colombo, Totino''’s, Pillsbury, Old El Paso, Häagen-Dazs, Cheerios, Trix, Cocoa Puffs, and Lucky Charms. Its brand portfolio includes more than 89 other leading U.S. brands and numerous category leaders around the world.',
+'Food processing',
+'Minneapolis, Minnesota',
+'1856',
+'https://www.nyse.com/quote/XNYS:GIS',
+'https://cdn.worldvectorlogo.com/logos/general-mills.svg'
+),
+
+('Kellogg''s',
+'Kellogg''s, doing business as The Kellogg Company, is an American multinational food-manufacturing company. Kellogg''s produces cereal and convenience foods, including cookies, crackers, and toaster pastries and markets their products by several well-known brands including Corn Flakes, Keebler, and Cheez-It. Kellogg''s mission statement is "Nourishing families so they can flourish and thrive. Kellogg''s holds a Royal Warrant from Queen Elizabeth II and the Prince of Wales.',
+'Food processing',
+'Battle Creek, Michigan',
+'1906',
+'https://www.nyse.com/quote/XNYS:K',
+'https://d1.awsstatic.com/case-studies/600x400_Kelloggs_logo.9d8e109cb092b1a5001685158d0b0860355dc846.png'
+),
+
+('MARS',
+'Mars is an American global manufacturer of confectionery, pet food, and other food products and a provider of animal care services, with an average of US$33 billion in annual sales and is ranked as the 6th largest privately held company in the United States by Forbes, The company is entirely owned by the Mars family. Mars operates in six business segments around the world from the United States to Belgium to Mexico.',
+'Food processing',
+'McLean, Virginia',
+'1911',
+'private',
+'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Mars_Inc.svg/278px-Mars_Inc.svg.png'
+),
+
+('Johnson&Johsnon', 
+'Johnson & Johnson is an American multinational medical devices, pharmaceutical and consumer packaged goods manufacturing company. The corporation includes some 250 subsidiary companies with operations in 60 countries and products sold in over 175 countries. Johnson & Johnson had an average worldwide yearly sales of $70.1 billion. The company has made the 3rd largest pharmaceutical settlement with the U.S. Department of Justice. Johnson & Johnson''s brands include numerous household names of medications and first aid supplies.', 
+'Pharmaceutical',
+'New Brunswick, New Jersey',
+'1886',
+'https://www.nyse.com/quote/XNYS:JNJ',
+'https://static.seekingalpha.com/uploads/2018/6/5663201_15288260995946_rId4.png'
+),
+
+('P&G',
+'Procter & Gamble Co. (P&G) is an American multi-national consumer goods corporation founded by British American William Procter and Irish American James Gamble. It primarily specializes in a wide range of cleaning agents, personal care and hygienic products. Before the sale of Pringles to the Kellogg Company, its product portfolio also included foods, snacks and beverages. On August 1, 2014, P&G announced it was streamlining the company, dropping and selling off around 100 brands from its product portfolio in order to focus on the remaining 65 brands, which produced 95% of the company''s profits. The future P&G is a much simpler, much less complex company of leading brands that''s easier to manage and operate.',
+'Consumer goods',
+'Cincinnati, Ohio',
+'1837',
+'https://www.nyse.com/quote/XNYS:PG',
+'https://news.pg.com/sites/pg.newshq.businesswire.com/files/logo/image/2018_PGlogo.png'
+),
+
+('Nestle',
+'Nestlé S.A. is a Swiss transnational food and drink. It is the largest food company in the world, measured by revenues and other metrics. It ranked No. 64 on the Fortune Global 500 in 2017. Nestlé''s products include baby food, medical food, bottled water, breakfast cereals, coffee and tea, confectionery, dairy products, ice cream, frozen food, pet foods, and snacks. Twenty-nine of Nestlé''s brands have annual sales of over $1.1 billion. Nestlé has 447 factories, operates in 194 countries, and employs around 339,000 people. The company grew significantly during the First World War with its condensed milk and instant formula products.',
+'Food processing',
+'Vevey,Vaud, Switzerland',
+'1905',
+'http://www.six-swiss-exchange.com/shares/security_info_en.html?id=CH0038863350CHF4', 
+'http://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo.png'
+),
+
+('Mondelez',
+'Mondelēz International, Inc. is an American multinational confectionery, food, and beverage company based in Illinois which employs about 83,000 people around the world. It consists of the global snack and food brands of the former Kraft Foods Inc. after the October 2012 spin-off of its North American grocery operations. The Mondelez name, adopted in 2012, was suggested by Kraft Foods employees and is derived from the Latin word mundus ("world") and delez, a fanciful modification of the word "delicious". The company manufactures chocolate, cookies, gum, confectionery, and powdered beverages. The company has an annual revenue of about $26 billion and operates in approximately 160 countries.',
+'Food processing',
+'Deerfield, Illinois',
+'2012',
+'https://www.nasdaq.com/symbol/mdlz',
+'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mondelez_international_2012_logo.svg/2000px-Mondelez_international_2012_logo.svg.png'),
+
+('Coca-Cola Company',
+'The Coca-Cola Company is an American corporation, and manufacturer, retailer, and marketer of nonalcoholic beverage concentrates and syrups. The company is best known for its flagship product Coca-Cola, invented in 1886 by pharmacist John Stith Pemberton. The company has operated a franchised distribution system since 1889: the Company only produces syrup concentrate, which is then sold to various bottlers throughout the world who hold exclusive territories. The company owns its anchor bottler in North America, Coca-Cola Refreshments and has acquired multiple beverage companies along the way.',
+'Beverage',
+'Atlanta, Georgia',
+'1889', 
+'https://www.nyse.com/quote/XNYS:KO',
+'http://www.coca-cola.com/content/dam/GO/CokeZone/Common/global/logo/logodesktop/coca-cola-logo-260x260.png');
+
 
 DELETE FROM products; 
 INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
@@ -26,7 +97,7 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'Lays',
 'Potato chips',
 '$1',
-'https://img.grouponcdn.com/stores/4NmC7rKZgJ6iHGfJxwCCcqy8SYrC/storespi2236635-1040x640/v1/c700x420.jpg'
+'https://www.dollargeneral.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/0/0/00028400199148_0.jpg'
 ),
 
 
