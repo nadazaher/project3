@@ -9,9 +9,18 @@
   border-bottom: 1px solid black;
 }
 
+.newheader{
+  height: 5vh;
+}
 .navigation {
   height: 10vh;
   padding: 20px;
+}
+
+.hero.is-info {
+  background: url('https://www.thebostoncalendar.com/system/events/photos/000/137/075/original/01-20-12-brands1.jpg?1497701204') no-repeat center center fixed;
+  background-size: cover; 
+  opacity: 0.7;
 }
 
 
@@ -31,6 +40,15 @@
 .scrollable {
   height: 65vh;
   overflow: scroll;
+}
+
+.newscrollable {
+  height:95vh;
+  overflow: scroll;
+}
+
+.newnewscrollable {
+  height:95vh;
 }
 
 .big-image {
@@ -60,6 +78,10 @@
 .edit-delete-favorite-button {
   border: none;
   font-size: 15px;
+}
+
+.hello {
+  margin-top: 123px;
 }
 
 .container3:hover{

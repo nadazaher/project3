@@ -4,6 +4,7 @@ function Header(props) {
   return (
     <div>
       <div className="navbar header">
+
         <div className="container3">
         <h1 className="navbar-item" onClick={() => props.handleLinks('landing page')}>One Big Ten</h1>
         </div>

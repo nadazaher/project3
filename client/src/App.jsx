@@ -6,7 +6,7 @@ import CompanyView from './components/CompanyView';
 import LandingPage from './components/LandingPage';
 import ProductView from './components/ProductView';
 import Register from './components/Register';
-import Header from './components/Header';
+import HeaderOne from './components/HeaderOne';
 import Login from './components/Login';
 import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites } from './services/api';
 
@@ -157,6 +157,12 @@ class App extends Component {
           updateProduct={this.updateProduct}
           createProduct={this.createProduct}
         />;
+        case 'favorites page':
+        return <FavoritesView 
+        userInfo={this.state.userInfo}
+        products={this.state.products}
+
+        />;
       case 'favorites page':
         return <FavoritesView
           companies={this.state.companies}
@@ -167,7 +173,10 @@ class App extends Component {
           userInfo={this.state.userInfo}
         />
       default:
-        return <LandingPage />;
+        return <LandingPage 
+        handleLinks={this.handleLinks}
+        />;
+
     }
   }
 
@@ -177,7 +186,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
+        <HeaderOne
           userInfo={this.state.userInfo}
           handleLinks={this.handleLinks}
           handleLoginClick={this.handleLoginClick}
