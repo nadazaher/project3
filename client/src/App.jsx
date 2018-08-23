@@ -21,14 +21,14 @@ class App extends Component {
       currentCompany: null,
       favorites: null,
     }
-    this.handleLinks = this.handleLinks.bind(this);
+    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
     this.handleProductLink = this.handleProductLink.bind(this);
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.createProduct = this.createProduct.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
-    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+    this.handleLinks = this.handleLinks.bind(this);
   }
 
   // default for React - when App loads synchronously make all these funcitions - get products and get companies - change setState when page loads to have data - this function never gets called
@@ -40,9 +40,9 @@ class App extends Component {
     fetchProducts()
       .then(data => this.setState({ products: data }));
 
-      fetchFavorites()
-        .then(data => this.setState({ favorites: data }));
-    }
+    fetchFavorites()
+      .then(data => this.setState({ favorites: data }));
+  }
 
   // handleLinks the currentview of value in state - this will let us reset currentView as needed by using handleLinks('desired view name') -- notice currentView is set as '' in this.state above
   handleLinks(viewName) {
@@ -59,7 +59,8 @@ class App extends Component {
           userInfo: { id: data.id, username: data.username }
         });
         localStorage.setItem('token', data.token);
-      });
+      })
+      .catch(err => console.log("test"));
   }
 
   handleRegisterSubmit(username, password) {
@@ -162,6 +163,15 @@ class App extends Component {
         products={this.state.products}
 
         />;
+      case 'favorites page':
+        return <FavoritesView
+          companies={this.state.companies}
+          favorites={this.state.favorites}
+          handleProductLink={this.state.handleProductLink}
+          deleteProduct={this.state.deleteProduct}
+          updateProduct={this.state.updateProduct}
+          userInfo={this.state.userInfo}
+        />
       default:
         return <LandingPage 
         handleLinks={this.handleLinks}

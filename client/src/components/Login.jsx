@@ -24,36 +24,37 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h2> Login </h2>
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    this.props.handleLoginSubmit(
-                        this.state.username,
-                        this.state.password
-                    );
-                    this.props.handleLinks('landing page');
-                }
-                } >
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder="Username"
-                        value={this.state.username}
-                        onChange={this.handleChange} />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleChange} />
-                    <input type="submit" value="Submit" />
-                </form>
-                <hr />
-                <div>Not Registered?</div>
-                <button onClick={() => this.props.handleLinks('register page')} >
-                    Register
-                  </button>
+                <div className="login">
 
+                    <h2 className="login-header">Log in</h2>
+
+                    <form className="login-container" onSubmit={(e) => {
+                        e.preventDefault();
+                        this.props.handleLoginSubmit(
+                            this.state.username,
+                            this.state.password
+                        );
+                        this.props.handleLinks('landing page');
+                    }
+                    } >
+                        <p><input type="text"
+                            name="username"
+                            placeholder="Username"
+                            value={this.state.username}
+                            onChange={this.handleChange} /></p>
+                        <p><input type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.handleChange} /></p>
+                        <p><input type="submit" value="Log in" /></p>
+                        <div>Not Registered?</div>
+                        <p><input type="submit" value="Register" onClick={(e) => {
+                            e.preventDefault();
+                            this.props.handleLinks('register page')}
+                            } /></p>
+                    </form>
+                </div>
             </div>
         )
     };
