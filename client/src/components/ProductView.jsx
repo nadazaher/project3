@@ -39,7 +39,8 @@ class ProductView extends Component {
   render() {
     return (
       <div>
-        Search:<input
+        <input
+          className ="input is-one-half searchInput"
           type="text"
           placeholder="Search for a product"
           value={this.state.inputValue}
