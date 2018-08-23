@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
-import CompanyView from './components/CompanyView';
 import CompanyInfoPage from './components/CompanyInfoPage';
+import FavoritesView from './components/FavoritesView';
+import CompanyView from './components/CompanyView';
 import LandingPage from './components/LandingPage';
 import ProductView from './components/ProductView';
 import Register from './components/Register';
+import Header from './components/Header';
 import Login from './components/Login';
-import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser } from './services/api';
+import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites } from './services/api';
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
       companies: [],
       userInfo: null,
       currentCompany: null,
+      favorites: null,
     }
     this.handleLinks = this.handleLinks.bind(this);
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
@@ -37,7 +39,10 @@ class App extends Component {
 
     fetchProducts()
       .then(data => this.setState({ products: data }));
-  }
+
+      fetchFavorites()
+        .then(data => this.setState({ favorites: data }));
+    }
 
   // handleLinks the currentview of value in state - this will let us reset currentView as needed by using handleLinks('desired view name') -- notice currentView is set as '' in this.state above
   handleLinks(viewName) {
@@ -67,7 +72,7 @@ class App extends Component {
       });
   }
 
-  // similar to handleLinks but handleCompanyLink allows you to take in ('desirec view', company ) to know which company to display - passed 2nd variable company from map function -- notice currentCompany is set as nul; in this.state above
+  // similar to handleLinks but handleCompanyLink allows you to take in ('desired view', company ) to know which company to display - passed 2nd variable company from map function -- notice currentCompany is set as nul; in this.state above
   handleCompanyLink(viewName, company) {
     this.setState({
       currentView: viewName,
@@ -151,6 +156,12 @@ class App extends Component {
           updateProduct={this.updateProduct}
           createProduct={this.createProduct}
         />;
+        case 'favorites page':
+        return <FavoritesView 
+        userInfo={this.state.userInfo}
+        products={this.state.products}
+
+        />
       default:
         return <LandingPage />;
     }
