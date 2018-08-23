@@ -173,11 +173,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
+        {/* <Header
           userInfo={this.state.userInfo}
           handleLinks={this.handleLinks}
           handleLoginClick={this.handleLoginClick}
-        />
+        /> */}
         {this.pageView()}
       </div>
     );

@@ -35,15 +35,37 @@ function LandingPage(props) {
 
 
         {/* Start Body */}
-        <div class="hero-body ">
-          <div class="container has-text-centered">
+        {/* <div class="hero-body ">
+          <div class="container has-text-centered ">
             <h1 class="title is-size-1">Who Makes My Product?</h1>
-            <h2 class="subtitle">
+            <h2 class="subtitle is-size-4">
               It may be obvious that Twix and M&Ms are both owned by Mars, but did you know that Breyers and Vaseline share a parent company, Unilever? The majority of the brands you use daily are made by just 10 multinational conglomerates. By using our website, you can find out which companies make your favorite products and more details about each company. If you don’t see a product listed, you are encouraged to add it to its corresponding parent company. Let’s start by browsing through the list of companies or searching for a specific product!
           </h2>
           </div>
-        </div>
+        </div> */}
         {/* End Body */}
+
+        <div class="container">
+
+          <section class="articles">
+            <div class="column is-8 is-offset-2">
+
+              <div class="card article">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content has-text-centered">
+                      <p class="title article-title">Who Makes My Product?</p>
+                    </div>
+                  </div>
+                  <div class="subtitle is-size-4">
+                    <p>It may be obvious that Twix and M&Ms are both owned by Mars, but did you know that Breyers and Vaseline share a parent company, Unilever? The majority of the brands you use daily are made by just 10 multinational conglomerates. By using our website, you can find out which companies make your favorite products and more details about each company. If you don’t see a product listed, you are encouraged to add it to its corresponding parent company. Let’s start by browsing through the list of companies or searching for a specific product! </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        </div>
 
         {/* Start Footer */}
         <div class="hero-foot">
