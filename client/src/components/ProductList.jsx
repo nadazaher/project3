@@ -71,7 +71,8 @@ class ProductList extends Component {
             </div>)
             :
             // displaying basic product data with edit button
-            (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
+            (<div className="container3">
+            <div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
               <div className="column is-one-sixth"><figure className="image is-96x96 plogo">
                 <img src={product.logo} />
               </figure></div>
@@ -103,6 +104,7 @@ class ProductList extends Component {
                 debugger;
                 this.props.deleteProduct(product.id);
               })}><FontAwesomeIcon icon="trash-alt" /></button></div>
+            </div>
             </div>
             )
         )}
