@@ -1,4 +1,4 @@
--- DROP TABLE IF EXISTS favorites;
+DROP TABLE IF EXISTS favorites;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS companies;
@@ -29,11 +29,11 @@ CREATE TABLE users (
     password_digest VARCHAR(255) NOT NULL
 );
 
--- CREATE TABLE favorites (
---     id SERIAL PRIMARY KEY,
---     user_id INT REFERENCES users(id),
---     product_id INT REFERENCES products(id)
--- )
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    product_id INT REFERENCES products(id)
+)
 
 
 

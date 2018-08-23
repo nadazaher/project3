@@ -29,7 +29,7 @@
 }
 
 .scrollable {
-  height: 70vh;
+  height: 65vh;
   overflow: scroll;
 }
 
@@ -54,6 +54,7 @@
   font-size: 18px;
   margin-bottom: 20px;
   text-align: center;
+  height: 10vh;
 } 
 
 .edit-delete-button {

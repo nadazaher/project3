@@ -9,6 +9,7 @@ const secret = process.env.TOKEN_SECRET || 'supersecuresecret';
 const companiesRouter = require('./routes/companiesRouter');
 const productsRouter = require('./routes/productsRouter');
 const authRouter = require('./routes/authRouter');
+const favRouter = require('./routes/favRouter');
 
 const PORT = 3001;
 
@@ -30,6 +31,7 @@ app.use('/auth', authRouter);
 // routers for the app's two resources
 app.use('/companies', companiesRouter);
 app.use('/products', productsRouter);
+app.use('/favorites', favRouter);
 
 // app.get('/', (req,res) => { 
 //     res.send("Hello World")

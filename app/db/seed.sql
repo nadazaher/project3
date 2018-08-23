@@ -281,12 +281,10 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '$2',
 'https://www.myamericanmarket.com/9281-large_default/fanta-orange.jpg');
 
+DELETE FROM users; 
+INSERT INTO users (username, password_digest)VALUES
+( 'zane','$2a$10$F7eUsJ4pTGYclWXe14e6heIyGqcx/6FIgUh3eOxJeEYjM4E1lHPse' );
 
-
-
-
-
-
-
-
-
+DELETE FROM favorites; 
+INSERT INTO favorites (user_id, product_id)VALUES
+( 1, 1 );
