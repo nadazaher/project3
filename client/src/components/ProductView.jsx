@@ -38,6 +38,7 @@ class ProductView extends Component {
     return (
       <div>
         <input
+          className ="input is-one-half searchInput"
           type="text"
           placeholder="Search for a product"
           value={this.state.inputValue}
@@ -50,7 +51,7 @@ class ProductView extends Component {
           updateProduct={this.props.updateProduct} />
           <hr/>
         <div className="bottom">
-          <input name="productURL" placeholder="Logo URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
+          <input name="productURL" placeholder="Product image URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
           <input name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} />
           <input name="productType" placeholder="Product type" value={this.state.productType} type="text" onChange={this.handleChange} />
           <input name="productMSRP" placeholder="MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />

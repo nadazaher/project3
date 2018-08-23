@@ -28,6 +28,15 @@ class ProductList extends Component {
       <div className="scrollable">
          {/* filtering through the array of products either by company of user input depending on the provided function
          then mapping through the results to display either the data or an inline edit form */}
+
+         <div className="columns">
+         <div className="column is-one-sixth top"> Image </div>
+         <div className="column is-one-sixth top"> Name </div>
+         <div className="column is-one-sixth top"> Type </div>
+         <div className="column is-one-sixth top"> MSRP </div>
+         <div className="column is-one-sixth">  </div>
+         <div className="column is-one-sixth">  </div>
+         </div>
         {this.props.products.filter(this.props.filterFN).map((product) =>
           // checking if productIsEditing variable from state is truthy or falsey
           this.state.productIsEditing === product.id
@@ -63,10 +72,10 @@ class ProductList extends Component {
             :
             // displaying basic product data with edit button
             (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
-              <div className="column is-one-sixth"><figure className="image is-96x96">
+              <div className="column is-one-sixth"><figure className="image is-96x96 plogo">
                 <img src={product.logo} />
               </figure></div>
-              <div className="column is-one-sixth">{product.name}</div>
+              <div className="column is-one-sixth" >{product.name}</div>
               <div className="column is-one-sixth">{product.product_type}</div>
               <div className="column is-one-sixth">{product.msrp}</div>
               <div className="column is-one-sixth"><button value={product.id} onClick={((e) => {
