@@ -4,8 +4,9 @@ function Header(props) {
   return (
     <div>
       <div className="navbar header">
-
+        <div className="container3">
         <h1 className="navbar-item" onClick={() => props.handleLinks('landing page')}>One Big Ten</h1>
+        </div>
         <div className="navbar-end">
           {/* // here javascript is checking if the user is logged in (if username is in localStorage), if he/she is logged in then user will be able to see the dropdown navbar menu - notice the ternary operator ? :  also we set localStorage in state so it can refresh the page*/}
           {props.userInfo
