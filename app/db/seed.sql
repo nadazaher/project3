@@ -277,7 +277,7 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 
 (10, 
 'Fanta',
-'Orange carbonated drink',
+'Orange drink',
 '$2',
 'https://www.myamericanmarket.com/9281-large_default/fanta-orange.jpg');
 
