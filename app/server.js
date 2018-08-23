@@ -11,7 +11,7 @@ const productsRouter = require('./routes/productsRouter');
 const authRouter = require('./routes/authRouter');
 const favRouter = require('./routes/favRouter');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(logger('dev'));
 

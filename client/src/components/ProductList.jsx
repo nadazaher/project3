@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 //productList is a controlled component so we need to set state
 
 class ProductList extends Component {
@@ -29,14 +30,15 @@ class ProductList extends Component {
         {/* filtering through the array of products either by company of user input depending on the provided function
          then mapping through the results to display either the data or an inline edit form */}
 
-         <div className="columns">
-         <div className="column is-one-sixth top"> Image </div>
-         <div className="column is-one-sixth top"> Name </div>
-         <div className="column is-one-sixth top"> Type </div>
-         <div className="column is-one-sixth top"> MSRP </div>
-         <div className="column is-one-sixth">  </div>
-         <div className="column is-one-sixth">  </div>
-         </div>
+        <div className="columns">
+          <div className="column is-one-seventh top"> Image </div>
+          <div className="column is-one-seventh top"> Name </div>
+          <div className="column is-one-seventh top"> Type </div>
+          <div className="column is-one-seventh top"> MSRP </div>
+          <div className="column is-one-seventh">  </div>
+          <div className="column is-one-seventh">  </div>
+          <div className="column is-one-seventh">  </div>
+        </div>
         {this.props.products.filter(this.props.filterFN).map((product) =>
           // checking if productIsEditing variable from state is truthy or falsey
           this.state.productIsEditing === product.id
@@ -71,38 +73,49 @@ class ProductList extends Component {
             </div>)
             :
             // displaying basic product data with edit button
-            (<div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
-              <div className="column is-one-sixth"><figure className="image is-96x96 plogo">
-                <img src={product.logo} />
-              </figure></div>
-              <div className="column is-one-sixth" >{product.name}</div>
-              <div className="column is-one-sixth">{product.product_type}</div>
-              <div className="column is-one-sixth">{product.msrp}</div>
-              <div className="column is-one-sixth"><button className="edit-delete-button" value={product.id} onClick={((e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                // setting specific product data for edit form - edit presets values in input form, setState will allow you to change the state/input in those fields when editing
-                this.setState({
-                  productIsEditing: product.id,
-                  productURL: product.logo,
-                  productName: product.name,
-                  productType: product.product_type,
-                  productMSRP: product.msrp,
-                });
-              })
-              } >  <FontAwesomeIcon icon="pencil-alt" />
 
-              </button></div>
+            (<div className="container3">
+              <div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
+                <div className="column is-one-seventh"><figure className="image is-96x96 plogo">
+                  <img src={product.logo} />
+                </figure></div>
+                <div className="column is-one-seventh" >{product.name}</div>
+                <div className="column is-one-seventh">{product.product_type}</div>
+                <div className="column is-one-seventh">{product.msrp}</div>
+                <div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  // setting specific product data for edit form - edit presets values in input form, setState will allow you to change the state/input in those fields when editing
+                  this.setState({
+                    productIsEditing: product.id,
+                    productURL: product.logo,
+                    productName: product.name,
+                    productType: product.product_type,
+                    productMSRP: product.msrp,
+                  });
+                })
+                } >  <FontAwesomeIcon icon="pencil-alt" />
 
-              {/* // creating delete button */}
-              <div className="column is-one-sixth"><button className="edit-delete-button" value={product.id} onClick={((e) => {
-                e.preventDefault();
-                // stopPropogation keeps the event from following the click that happens to the entire div
-                e.stopPropagation();
-                // takes id of product and deletes it from database
-                debugger;
-                this.props.deleteProduct(product.id);
-              })}><FontAwesomeIcon icon="trash-alt" /></button></div>
+                </button></div>
+
+                {/* // creating delete button */}
+                <div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
+                  e.preventDefault();
+                  // stopPropogation keeps the event from following the click that happens to the entire div
+                  e.stopPropagation();
+                  // takes id of product and deletes it from database
+                  debugger;
+                  this.props.deleteProduct(product.id);
+                })}><FontAwesomeIcon icon="trash-alt" /></button></div>
+
+                <div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  // this.props.deleteProduct(product.id);
+                })}><FontAwesomeIcon icon={["fas", "heart"]} />
+                  <FontAwesomeIcon icon={["far", "heart"]} />
+                </button></div>
+              </div>
             </div>
             )
         )}

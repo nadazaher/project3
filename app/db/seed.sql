@@ -115,6 +115,13 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'https://www.ldproducts.com/media/catalog/product/cache/3/image/730x/9df78eab33525d08d6e5fb8d27136e95/2/0/2000_1030323986.jpg'
 ),
 
+(1,
+'Pepsi',
+'Cola drink',
+'$1',
+'https://www.pepsi.com/en-us/uploads/images/can-pepsi.png'
+),
+
 (2,
  'Dove',
  'Personal care',
@@ -136,11 +143,19 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'https://4.imimg.com/data4/HH/NV/GLADMIN-16687741/1-500x500.jpg'
 ),
 
+(2,
+'Breyers',
+'Ice Cream',
+'$4',
+'https://www.breyers.com/sk-eu/content/dam/brands/breyers/united_states_ofamerica/1004620-077567254238-top-down-c.png.rendition.380.380.png'
+),
+
 (3, 
 'Betty Crocker',
 'Baking mix',
 '$2',
-'https://images-na.ssl-images-amazon.com/images/I/91ym88%2BdnrL._SY355_.jpg'),
+'https://images-na.ssl-images-amazon.com/images/I/91ym88%2BdnrL._SY355_.jpg'
+),
 
 (3, 
 'Haagen Dazs',
@@ -153,6 +168,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'Cereal',
 '$4',
 'https://images-na.ssl-images-amazon.com/images/I/81cccgZf1JL._SY355_.jpg'),
+
+(3,
+'Chex Mix',
+'Snack Mix',
+'$4',
+'https://www.chexmix.com/wp-content/uploads/2016/08/chex_mix.jpg'),
 
 (4, 
 'Cheez-It',
@@ -172,6 +193,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '$3',
 'https://images-na.ssl-images-amazon.com/images/I/61C4P84GGOL.jpg'),
 
+(4,
+'Eggo',
+'Waffles',
+'$3',
+'https://images-na.ssl-images-amazon.com/images/I/91Wha7WJXwL._SY355_.jpg'),
+
 (5, 
 'M&Ms',
 'Chocolate candy',
@@ -189,6 +216,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'Gum',
 '$1',
 'https://www.britishcornershop.co.uk/img/large/QWOP1358.jpg'),
+
+(5,
+'Snickers',
+'Chocolate bar',
+'$1',
+'https://target.scene7.com/is/image/Target/13055534_Alt01?wid=488&hei=488&fmt=pjpeg'),
 
 (6, 
 'Bengay',
@@ -208,6 +241,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '$5',
 'https://images-na.ssl-images-amazon.com/images/I/81EmMm%2BH44L._SY355_.jpg'),
 
+(6,
+'Johnsons Baby Shampoo',
+'Shampoo',
+'$3',
+'https://img.makeupalley.com/8/7/6/9/2012494.JPG'),
+
 (7, 
 'Pampers',
 'Diapers',
@@ -225,6 +264,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 'Hair care',
 '$4',
 'https://pics.drugstore.com/prodimg/406961/900.jpg'),
+
+(7,
+'Crest Complete',
+'Toothpaste',
+'$3',
+'https://azcdn.titan.pgsitecore.com/en-us/-/media/Crest/Images/Products/Category/ToothPaste/Complete_Whitening_Plus_Scope_Toothpaste/Crest-Complete-Whitening-plus-scope-mint_1200x1200.png?w=460&v=1-201704120744'),
 
 (8, 
 'Nerds',
@@ -244,6 +289,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '$2',
 'https://mrsmedia.nestleusa.com/Images/Products/11584_SMLimg.png'),
 
+(8,
+'Gerber Baby Food',
+'Baby food',
+'$3',
+'https://target.scene7.com/is/image/Target/15091646?wid=488&hei=488&fmt=pjpeg'),
+
 (9, 
 'Philadelphia',
 'Cream cheese',
@@ -262,6 +313,12 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 '$3',
 'https://pics.drugstore.com/prodimg/373932/450.jpg'),
 
+(9,
+'Sour Patch Kids',
+'Candy',
+'$3',
+'https://images-na.ssl-images-amazon.com/images/I/61K-pAVXRgL._SX355_.jpg'),
+
 (10, 
 'Vitamin Water',
 'Energy drink',
@@ -277,9 +334,16 @@ INSERT INTO products (company_id, name, product_type, msrp, logo)VALUES
 
 (10, 
 'Fanta',
-'Orange carbonated drink',
-'$2',
-'https://www.myamericanmarket.com/9281-large_default/fanta-orange.jpg');
+'Orange drink',
+'$1',
+'https://www.myamericanmarket.com/9281-large_default/fanta-orange.jpg'),
+
+(10,
+'Coca-Cola',
+'Soda',
+'$1',
+'https://www.myamericanmarket.com/873-large_default/coca-cola-classic.jpg'
+);
 
 DELETE FROM users; 
 INSERT INTO users (username, password_digest)VALUES

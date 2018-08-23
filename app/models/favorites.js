@@ -4,7 +4,17 @@ module.exports = {
 
   findAllFavorites() {
     return db.many(`
-      SELECT * FROM favorites;
+      SELECT 
+      f.user_id AS user_id,
+      p.id AS id,
+      p.company_id AS company_id,
+      p.name AS name,
+      p.product_type AS product_type,
+      p.msrp AS msrp,
+      p.logo AS logo
+      FROM favorites f
+      JOIN products p ON f.product_id = p.id
+      ORDER BY f.user_id, f.product_id;
     `);
   },
 

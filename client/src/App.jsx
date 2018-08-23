@@ -6,7 +6,7 @@ import CompanyView from './components/CompanyView';
 import LandingPage from './components/LandingPage';
 import ProductView from './components/ProductView';
 import Register from './components/Register';
-import Header from './components/Header';
+import HeaderOne from './components/HeaderOne';
 import Login from './components/Login';
 import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites } from './services/api';
 
@@ -21,14 +21,15 @@ class App extends Component {
       currentCompany: null,
       favorites: null,
     }
-    this.handleLinks = this.handleLinks.bind(this);
+    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+    this.handleLogoutSubmit = this.handleLogoutSubmit.bind(this);
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
     this.handleProductLink = this.handleProductLink.bind(this);
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.createProduct = this.createProduct.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
-    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+    this.handleLinks = this.handleLinks.bind(this);
   }
 
   // default for React - when App loads synchronously make all these funcitions - get products and get companies - change setState when page loads to have data - this function never gets called
@@ -40,9 +41,9 @@ class App extends Component {
     fetchProducts()
       .then(data => this.setState({ products: data }));
 
-      fetchFavorites()
-        .then(data => this.setState({ favorites: data }));
-    }
+    fetchFavorites()
+      .then(data => this.setState({ favorites: data }));
+  }
 
   // handleLinks the currentview of value in state - this will let us reset currentView as needed by using handleLinks('desired view name') -- notice currentView is set as '' in this.state above
   handleLinks(viewName) {
@@ -59,7 +60,8 @@ class App extends Component {
           userInfo: { id: data.id, username: data.username }
         });
         localStorage.setItem('token', data.token);
-      });
+      })
+      .catch(err => console.log("test"));
   }
 
   handleRegisterSubmit(username, password) {
@@ -70,6 +72,11 @@ class App extends Component {
         });
         window.localStorage.setItem("token", data.token);
       });
+  }
+
+  handleLogoutSubmit() {
+    this.setState({ userInfo: null });
+    window.localStorage.clear();
   }
 
   // similar to handleLinks but handleCompanyLink allows you to take in ('desired view', company ) to know which company to display - passed 2nd variable company from map function -- notice currentCompany is set as nul; in this.state above
@@ -109,6 +116,7 @@ class App extends Component {
       })
 
   }
+
   deleteProduct(product) {
     destroyProduct(product)
       .then(data => fetchProducts())
@@ -161,9 +169,21 @@ class App extends Component {
         userInfo={this.state.userInfo}
         products={this.state.products}
 
+        />;
+      case 'favorites page':
+        return <FavoritesView
+          companies={this.state.companies}
+          favorites={this.state.favorites}
+          handleProductLink={this.state.handleProductLink}
+          deleteProduct={this.state.deleteProduct}
+          updateProduct={this.state.updateProduct}
+          userInfo={this.state.userInfo}
         />
       default:
-        return <LandingPage />;
+        return <LandingPage 
+        handleLinks={this.handleLinks}
+        />;
+
     }
   }
 
@@ -173,7 +193,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
+        <HeaderOne
           userInfo={this.state.userInfo}
           handleLinks={this.handleLinks}
           handleLoginClick={this.handleLoginClick}
