@@ -5,14 +5,18 @@ import ProductList from './ProductList';
 function FavoritesView(props) {
   return (
     <div>
-      {/* <div>
+      <div>
+        List of my favorites:
         <ProductList
-          products={this.props.products}
-          filterFN={(product) => favorites.user_id)}
-          handleProductLink={this.props.handleProductLink}
-          deleteProduct={this.props.deleteProduct}
-          updateProduct={this.props.updateProduct} />
-      </div> */}
+          companies={props.companies}
+          products={props.favorites}
+          filterFN={(product) => product.user_id === props.userInfo.id}
+          handleProductLink={props.handleProductLink}
+          deleteProduct={props.deleteProduct}
+          updateProduct={props.updateProduct}
+          userInfo={props.userInfo}
+        />
+      </div>
     </div>
   )
 }
