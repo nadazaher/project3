@@ -62,9 +62,8 @@
   font-size: 15px;
 }
 
-/* .emptyStar {
-    content: '\f005';
-    font-family: 'Font Awesome 5 Free';
-    color: white;
-    border: 1px solid black;
-} */
+.container3:hover{
+  background-color: rgba(0,0,0,.1);
+  font-size:20pt;
+}
+
