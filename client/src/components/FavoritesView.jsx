@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductList from './ProductList';
 
-// two columns
 function FavoritesView(props) {
   return (
     <div>

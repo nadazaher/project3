@@ -26,11 +26,11 @@ class Register extends Component {
     render() {
         return (
             <div>
-                <div class="login">
+                <div className="login">
 
-                    <h2 class="login-header"> New User Registration </h2>
+                    <h2 className="login-header"> New User Registration </h2>
 
-                    <form class="login-container" onSubmit={(e) => {
+                    <form className="login-container" onSubmit={(e) => {
                         e.preventDefault();
                         this.props.handleLoginSubmit(
                             this.state.username,
