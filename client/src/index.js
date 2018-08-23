@@ -7,7 +7,9 @@ import 'bulma/css/bulma.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { faStar } from '@fortawesome/free-regular-svg-icons'
 
+library.add(faStar);
 library.add(fas,far);
 
 ReactDOM.render(<App />, document.getElementById('root'));
