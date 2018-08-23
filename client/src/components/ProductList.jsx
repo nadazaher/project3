@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //productList is a controlled component so we need to set state
 
@@ -26,7 +26,7 @@ class ProductList extends Component {
   render() {
     return (
       <div className="scrollable">
-         {/* filtering through the array of products either by company of user input depending on the provided function
+        {/* filtering through the array of products either by company of user input depending on the provided function
          then mapping through the results to display either the data or an inline edit form */}
 
          <div className="columns">
@@ -78,7 +78,7 @@ class ProductList extends Component {
               <div className="column is-one-sixth" >{product.name}</div>
               <div className="column is-one-sixth">{product.product_type}</div>
               <div className="column is-one-sixth">{product.msrp}</div>
-              <div className="column is-one-sixth"><button value={product.id} onClick={((e) => {
+              <div className="column is-one-sixth"><button className="edit-delete-button" value={product.id} onClick={((e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 // setting specific product data for edit form - edit presets values in input form, setState will allow you to change the state/input in those fields when editing
@@ -90,17 +90,19 @@ class ProductList extends Component {
                   productMSRP: product.msrp,
                 });
               })
-              } > Edit </button></div>
+              } >  <FontAwesomeIcon icon="pencil-alt" />
 
-            {/* // creating delete button */}
-              <div className="column is-one-sixth"><button value={product.id} onClick={((e) => {
+              </button></div>
+
+              {/* // creating delete button */}
+              <div className="column is-one-sixth"><button className="edit-delete-button" value={product.id} onClick={((e) => {
                 e.preventDefault();
-
-           // stopPropogation keeps the event from following the click that happens to the entire div
+                // stopPropogation keeps the event from following the click that happens to the entire div
                 e.stopPropagation();
-            // takes id of product and deletes it from database
-                this.props.deleteProduct(e.target.value);
-              })}>Delete</button></div>
+                // takes id of product and deletes it from database
+                debugger;
+                this.props.deleteProduct(product.id);
+              })}><FontAwesomeIcon icon="trash-alt" /></button></div>
             </div>
             )
         )}

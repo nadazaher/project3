@@ -7,6 +7,7 @@ class ProductView extends Component {
     this.state = {
       inputValue: '',
       filterList: [],
+      productCompany: 1,
       productURL: '',
       productName: '',
       productType: '',
@@ -34,6 +35,7 @@ class ProductView extends Component {
     })
   }
 
+
   render() {
     return (
       <div>
@@ -49,13 +51,42 @@ class ProductView extends Component {
           handleProductLink={this.props.handleProductLink}
           deleteProduct={this.props.deleteProduct}
           updateProduct={this.props.updateProduct} />
-          <hr/>
+        <hr />
         <div className="bottom">
-          <input name="productURL" placeholder="Product image URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
-          <input name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} />
-          <input name="productType" placeholder="Product type" value={this.state.productType} type="text" onChange={this.handleChange} />
-          <input name="productMSRP" placeholder="MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />
-          <button>Submit</button>
+          Add new product
+          <form onSubmit={((e) => {
+            e.preventDefault();
+            this.props.createProduct({
+              company_id: this.state.productCompany,
+              name: this.state.productName,
+              product_type: this.state.productType,
+              msrp: this.state.productMSRP,
+              logo: this.state.productURL
+            });
+            this.setState({
+              productCompany: 1,
+              productURL: '',
+              productName: '',
+              productType: '',
+              productMSRP: ''
+            });
+          })}>
+            <select
+              onChange={this.handleChange}
+              name="productCompany"
+              >
+              {
+                this.props.companies.map((company) => (
+                  <option key={company.id} value={company.id}>{company.name}</option>
+                ))
+              }
+            </select>
+            <input name="productURL" placeholder="(optional) Logo URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
+            <input name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} required />
+            <input name="productType" placeholder="(optional) Product type" value={this.state.productType} type="text" onChange={this.handleChange} />
+            <input name="productMSRP" placeholder="(optional) MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />
+            <button>Create</button>
+          </form>
         </div>
       </div>
     )
