@@ -52,8 +52,9 @@ class ProductView extends Component {
           deleteProduct={this.props.deleteProduct}
           updateProduct={this.props.updateProduct} />
         <hr />
-        <div className="bottom">
-          Add new product
+        <div className="bottom createform">
+        <h3 className="addnewproduct">Add new product:</h3>
+
           <form onSubmit={((e) => {
             e.preventDefault();
             this.props.createProduct({
@@ -71,7 +72,7 @@ class ProductView extends Component {
               productMSRP: ''
             });
           })}>
-            <select
+            <select className="createinputs"
               onChange={this.handleChange}
               name="productCompany"
               >
@@ -81,11 +82,11 @@ class ProductView extends Component {
                 ))
               }
             </select>
-            <input name="productURL" placeholder="(optional) Logo URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
-            <input name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} required />
-            <input name="productType" placeholder="(optional) Product type" value={this.state.productType} type="text" onChange={this.handleChange} />
-            <input name="productMSRP" placeholder="(optional) MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />
-            <button>Create</button>
+            <input className="createinputs" name="productURL" placeholder="Logo URL" value={this.state.productURL} type="text" onChange={this.handleChange} />
+            <input className="createinputs" name="productName" placeholder="Product name" value={this.state.productName} type="text" onChange={this.handleChange} required />
+            <input className="createinputs" name="productType" placeholder="Product type" value={this.state.productType} type="text" onChange={this.handleChange} />
+            <input className="createinputs" name="productMSRP" placeholder="MSRP" value={this.state.productMSRP} type="text" onChange={this.handleChange} />
+            <button className="createbutton">Create</button>
           </form>
         </div>
       </div>

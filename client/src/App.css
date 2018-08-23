@@ -20,7 +20,7 @@
 }
 
 .bottom {
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
   background-color: white;
   position: fixed;
   bottom: 0;
@@ -61,3 +61,31 @@
   border: none;
   font-size: 15px;
 }
+
+.addnewproduct {
+  font-weight: bold;
+  margin-bottom: 11px;
+  margin-top: 11px;
+}
+
+.createform {
+  background-color: lightskyblue;
+  
+}
+
+.createinputs {
+  font-size: 16px;
+  margin-right: 5px;
+
+}
+
+.createbutton {
+  height: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  position: fixed;
+  width: 120px;
+  background-color: lightseagreen;
+  border: solid 0.5px lightseagreen;
+}
+
