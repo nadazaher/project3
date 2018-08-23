@@ -18,7 +18,7 @@ function Header(props) {
                 <a className="navbar-item" onClick={() => props.handleLinks('favorites page')}>Favorites</a>
                 {/* <a className="navbar-item">High Score</a> */}
                 <hr className="navbar-divider" />
-                <a className="navbar-item">Logout</a>
+                <a className="navbar-item" onClick={props.handleLogoutSubmit}>Logout</a>
               </div>
             </div>)
             :

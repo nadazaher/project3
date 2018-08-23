@@ -22,6 +22,7 @@ class App extends Component {
       favorites: null,
     }
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
+    this.handleLogoutSubmit = this.handleLogoutSubmit.bind(this);
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
     this.handleProductLink = this.handleProductLink.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -73,6 +74,11 @@ class App extends Component {
       });
   }
 
+  handleLogoutSubmit() {
+    this.setState({ userInfo: null });
+    window.localStorage.clear();
+  }
+
   // similar to handleLinks but handleCompanyLink allows you to take in ('desired view', company ) to know which company to display - passed 2nd variable company from map function -- notice currentCompany is set as nul; in this.state above
   handleCompanyLink(viewName, company) {
     this.setState({
@@ -110,6 +116,7 @@ class App extends Component {
       })
 
   }
+
   deleteProduct(product) {
     destroyProduct(product)
       .then(data => fetchProducts())
@@ -178,6 +185,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header
+          handleLogoutSubmit={this.handleLogoutSubmit}
           userInfo={this.state.userInfo}
           handleLinks={this.handleLinks}
           handleLoginClick={this.handleLoginClick}
