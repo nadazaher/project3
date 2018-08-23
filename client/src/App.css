@@ -14,6 +14,17 @@
   padding: 20px;
 }
 
+.hero.is-info {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.75)
+    ), url('https://www.thebostoncalendar.com/system/events/photos/000/137/075/original/01-20-12-brands1.jpg?1497701204') no-repeat center center fixed;
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;*/
+  background-size: cover; 
+}
+
 
 .columns:last-child {
   margin-bottom: 0 !important;

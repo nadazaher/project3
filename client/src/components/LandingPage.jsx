@@ -3,7 +3,7 @@ import React from 'react';
 function LandingPage(props) {
   return (
     <div >
-      <section class="hero is-info is-fullheight" >
+      <section class="hero is-info is-fullheight">
 
         {/* Start Header */}
         <div class="hero-head">
@@ -39,7 +39,7 @@ function LandingPage(props) {
           <div class="container has-text-centered">
             <h1 class="title is-size-1">Who Makes My Product?</h1>
             <h2 class="subtitle">
-              It may be obvious that Twix and M-and-Ms are both owned by Mars-- but did you know that Breyers and Vaseline share a parent company Unilever? The majority of the brands you use daily are made by just 10 multinational conglomerates. By using our website, you can find out which companies make your favorite products and more details about each company. If you don’t see a product listed, you are encouraged to add it to its corresponding parent company. Let’s start by browsing through the list of companies or searching for a specific product!
+              It may be obvious that Twix and M&Ms are both owned by Mars, but did you know that Breyers and Vaseline share a parent company, Unilever? The majority of the brands you use daily are made by just 10 multinational conglomerates. By using our website, you can find out which companies make your favorite products and more details about each company. If you don’t see a product listed, you are encouraged to add it to its corresponding parent company. Let’s start by browsing through the list of companies or searching for a specific product!
           </h2>
           </div>
         </div>
