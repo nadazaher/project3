@@ -50,7 +50,7 @@ Database:
 We created 4 tables using SQL - Products, Companies, Users, and Favorites. Products had a join to Companies on company_id and Users had a join to favorites on user_id. We seeded a list of the 10 conglomerates and four products for each. 
 
 Backend:
-Using Express, we followed the MVC model starting off by creating models to pull from the database, linked them to controller functions, and then created routes for each. In this case we used REACT for views instead of EJX so the frontend took care of the views.
+Using Express, we followed the MVC model starting off by creating models to pull from the database, linked them to controller functions, and then created routes for each. In this case we used REACT for views instead of EJS so the frontend took care of the views.
 
 Frontend:
 Using React, we created separated components for each page and created a switch function that renders the respective page onClick. 
@@ -126,4 +126,8 @@ We used the node package to create our favorites piechart
 
 https://www.paulirish.com/2009/random-hex-color-code-snippets/
 
-Paul Irish is a front end web dev for google. He came up with a genious way to randomly generate hex colors. we incorporated this in our "favorites" piechart
+Paul Irish is a front end web dev for google. He came up with a genious way to randomly generate hex colors. We incorporated this in our "favorites" piechart
+
+## Created By:
+David Whitlatch, Jim Gary, Felix Flores, and Nada Zaher
+
