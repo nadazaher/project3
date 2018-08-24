@@ -1,4 +1,8 @@
 # Project-3
+
+![screen shot 2018-08-23 at 8 11 19 pm](https://media.git.generalassemb.ly/user/14932/files/49110598-a712-11e8-89d3-60b1c5f4fbd2)
+
+
 # Who Makes My Product?
 A tool that can be used to satify your curiousity and get you started on your stock research. How many of us know that Slim-Fast is owned by Mars who ironically also makes some of the most iconic chocolate bars suchs as Snickers and Milky Way? This tool will inform the user as to the company and corporation that makes some of their favorite products.
 ## User Stories
