@@ -38,7 +38,7 @@ module.exports = {
   },
 
   countCompanies(id) {
-    return db.one(`
+    return db.any(`
     SELECT p.company_id AS company_id, c.name AS name, COUNT(*) FROM favorites f
     JOIN products p ON f.product_id = p.id
     JOIN companies c ON p.company_id = c.id
