@@ -10,6 +10,7 @@
     "bulma": "^0.7.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-favicon": "^0.0.14",
     "react-scripts": "1.1.4",
     "react-svg-piechart": "^2.1.1"
   },
