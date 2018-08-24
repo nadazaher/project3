@@ -23,7 +23,7 @@ function FavoritesView(props) {
         <PieChart
           data={props.favoritesStats}
           expandOnHover={true}
-          expandSize={5}
+          expandSize={1}
           shrinkOnTouchEnd={false}
           strokeColor="#fff"
           strokeLinejoin="round"

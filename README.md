@@ -8,19 +8,13 @@ A tool that will inform the user which conglomerates makes some of their favorit
 ## User Stories
 User = average consumer/young investor
 
-CREATE:
+CREATE, READ, UPDATE, DELETE:
 1)	As a user, I would like to create products to a specific conglomerate. 
 2)  As a user, I would like to favorite a product that I like/use most often. 
-
-READ:
 3)	As a user, I would like to know the source of the products I use most often.
 4)  As a user, I would like to see a list of my favorite products.
 5)	As a user, I would like to know the implications of investing in conglomerates that I use most often.
-
-UPDATE:
 6)	As a user, I would like to update products from a specific conglomerate. 
-
-DELETE:
 7)	As a user, I would like to delete products from a specific conglomerate. 
 
 ## Motivation
@@ -38,16 +32,16 @@ We were curious to know who were the corporations behind our favorite products. 
 9) yarn install
 10) yarn start
 
-## ERD
+## Initial ERD 
 ![project 3 erd](https://media.git.generalassemb.ly/user/14932/files/f4c24042-a3d3-11e8-93ef-e1e98ab7535c)
 
-## Original Wireframes
+## Initial Wireframes
 ![landing](https://media.git.generalassemb.ly/user/14932/files/0e43ab78-a3d4-11e8-99d5-0f6e62e2a39e)
 ![company search](https://media.git.generalassemb.ly/user/14932/files/12004df2-a3d4-11e8-9f37-a8ed19c8fad7)
 ![company info](https://media.git.generalassemb.ly/user/14932/files/13c5a70e-a3d4-11e8-9434-cc9c25a92553)
 ![product search](https://media.git.generalassemb.ly/user/14932/files/1006adb6-a3d4-11e8-8514-08e678b027ef)
 
-## Initial Thoughts on App Structure
+## Thoughts on App Structure
 
 Dependencies:
 Made sure to install all the needed dependencies in our package.json before running the servers. 
@@ -74,7 +68,6 @@ Design:
 We imported Bulma for structured templates and then added our own classNames to style with CSS. We also used icons from fontAwesome for edit, delete, and favorite. 
 
 ## Code Snippet
-(insert code form productsList here)
 
 ```javascript
 {/* favorite button */}
@@ -126,3 +119,7 @@ Our inspiration for the login page came from this codepen.
 https://bulma.io/documentation/
 
 We incorporated bulma into our styling.
+
+https://www.paulirish.com/2009/random-hex-color-code-snippets/
+
+Paul Irish is a front end web dev for google. He came up with a genious way to randomly generate hex colors. we incorporated this in our "favorites" piechart
