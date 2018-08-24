@@ -20,7 +20,8 @@ class App extends Component {
       userInfo: null,
       currentCompany: null,
       favorites: null,
-      countFavorites: []
+      countFavorites: [],
+      favoritesStats: []
     }
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.handleLogoutSubmit = this.handleLogoutSubmit.bind(this);
@@ -152,9 +153,22 @@ class App extends Component {
         .then(data => this.setState({
           countFavorites: dataArr
         }))
+        .then(data => this.setFavStats())
     })
   }
 
+  setFavStats() {
+    const data = []
+    this.state.countFavorites.filter(favorite => favorite.length).forEach((favorite) =>
+      data.push({
+        title: favorite[0].name,
+        value: parseInt(favorite[0].count),
+        color: ('#' + Math.floor(Math.random() * 16777215).toString(16))
+      }));
+    this.setState({
+      favoritesStats: data
+    })
+  }
 
   // pageView (switch-case function) will check the currentView and return the respective page - this is how you are able to change view on the fly without reloading - need to pass down functions here so you can use them in child components as this.props
   pageView() {
@@ -216,6 +230,7 @@ class App extends Component {
           updateProduct={this.updateProduct}
           addFavorite={this.addFavorite}
           countFavorites={this.state.countFavorites}
+          favoritesStats={this.state.favoritesStats}
           companies={this.state.companies}
           favorites={this.state.favorites}
           userInfo={this.state.userInfo}
