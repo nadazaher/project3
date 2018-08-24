@@ -1,4 +1,8 @@
 # Project-3
+
+![screen shot 2018-08-23 at 8 11 19 pm](https://media.git.generalassemb.ly/user/14932/files/49110598-a712-11e8-89d3-60b1c5f4fbd2)
+
+
 # Who Makes My Product?
 A tool that can be used to satify your curiousity and get you started on your stock research. How many of us know that Slim-Fast is owned by Mars who ironically also makes some of the most iconic chocolate bars suchs as Snickers and Milky Way? This tool will inform the user as to the company and corporation that makes some of their favorite products.
 ## User Stories
@@ -17,6 +21,10 @@ UPDATE:
 
 DELETE:
 6)	As a user, I would like to delete products from a specific conglomerate. 
+
+## Motivation
+We were curious to know who were the corporations behind our favorite products. We came across this map showing our various companies 
+and the products they made and that inspired us to make our app. http://www.convergencealimentaire.info/map.jpg
 
 ## Setup Instructions
 After cloning do
@@ -57,3 +65,12 @@ This website is designed for young, curious consumers who are also looking to in
 - Adding an admin to approve any submissions or edits before being posted
 - Matching game for interactivity (users can have high scores)
 - Personalized suggestions for inveting
+
+## Citations
+https://codepen.io/miroot/pen/qwIgC
+
+Our inspiration for the login page came from this codepen.
+
+https://bulma.io/documentation/
+
+We incorporated bulma into our styling.
