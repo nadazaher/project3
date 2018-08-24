@@ -166,10 +166,10 @@ class App extends Component {
           handleLoginSubmit={this.handleLoginSubmit}
           favoriteCount={this.favoriteCount}
           handleLinks={this.handleLinks}
-          />;
-          
-          case 'register page':
-          return <Register
+        />;
+
+      case 'register page':
+        return <Register
           handleRegisterSubmit={this.handleRegisterSubmit}
           favoriteCount={this.favoriteCount}
           handleLinks={this.handleLinks}
@@ -196,17 +196,17 @@ class App extends Component {
         />;
       case 'products index':
         return <ProductView
-        handleProductLink={this.handleProductLink}
-        deleteFavorite={this.deleteFavorite}
-        deleteProduct={this.deleteProduct}
-        updateProduct={this.updateProduct}
-        createProduct={this.createProduct}
-        addFavorite={this.addFavorite}
-        handleLinks={this.handleLinks}
-        companies={this.state.companies}
-        favorites={this.state.favorites}
-        userInfo={this.state.userInfo}
-        products={this.state.products}
+          handleProductLink={this.handleProductLink}
+          deleteFavorite={this.deleteFavorite}
+          deleteProduct={this.deleteProduct}
+          updateProduct={this.updateProduct}
+          createProduct={this.createProduct}
+          addFavorite={this.addFavorite}
+          handleLinks={this.handleLinks}
+          companies={this.state.companies}
+          favorites={this.state.favorites}
+          userInfo={this.state.userInfo}
+          products={this.state.products}
         />;
       case 'favorites page':
         return <FavoritesView
@@ -215,6 +215,7 @@ class App extends Component {
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
           addFavorite={this.addFavorite}
+          countFavorites={this.state.countFavorites}
           companies={this.state.companies}
           favorites={this.state.favorites}
           userInfo={this.state.userInfo}
