@@ -14,7 +14,7 @@ function HeaderOne(props) {
       <div class="navbar-brand ">
         <a class="navbar-item ">
           <h1 class="title is-size-3  has-text-black" 
-          onClick={() => props.handleLinks('landing page')}>OneOfTen</h1>
+          onClick={() => props.handleLinks('landing page')}>OneBigTen</h1>
         </a>
 
       </div>
