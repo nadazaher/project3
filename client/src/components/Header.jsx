@@ -36,12 +36,13 @@ function HeaderOne(props) {
                             onClick={() => props.handleLinks('favorites page')}> My Favorites</a>
                           <hr className="navbar-divider" />
                           <a class="navbar-item has-text-black"
-                            // onClick={props.handleLogoutSubmit}
+
                             
                             onClick={() => {
                               props.handleLinks('landing page');
                               props.handleLogoutSubmit();
                             }}> Logout</a>
+
                         </div>
                       </div>
                     )

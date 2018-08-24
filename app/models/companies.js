@@ -7,6 +7,7 @@ module.exports = {
     return db.many(`
         SELECT * 
         FROM companies
+        ORDER BY id
         `);
   },
   findOneCompany(id) {

@@ -65,7 +65,6 @@ class App extends Component {
         });
         localStorage.setItem('token', data.token);
       })
-      .catch(err => console.log("test"));
   }
 
   handleRegisterSubmit(username, password) {
@@ -130,21 +129,24 @@ class App extends Component {
   }
 
   addFavorite(favorite) {
+    const dataArr = []
     saveFavorites(favorite)
       .then(data => fetchFavorites())
       .then(data => this.setState({ favorites: data }))
+      .then(data => this.favoriteCount());
+
   }
 
   deleteFavorite(favorite) {
     destroyFavorites(favorite)
       .then(data => fetchFavorites())
       .then(data => this.setState({ favorites: data }))
+      .then(data => this.favoriteCount());
   }
 
   favoriteCount() {
     const dataArr = []
     this.state.companies.forEach((company) => {
-      debugger;
       countCompanies(company.id)
         .then(data => dataArr.push(data))
         .then(data => this.setState({
@@ -164,10 +166,10 @@ class App extends Component {
           handleLoginSubmit={this.handleLoginSubmit}
           favoriteCount={this.favoriteCount}
           handleLinks={this.handleLinks}
-          />;
-          
-          case 'register page':
-          return <Register
+        />;
+
+      case 'register page':
+        return <Register
           handleRegisterSubmit={this.handleRegisterSubmit}
           favoriteCount={this.favoriteCount}
           handleLinks={this.handleLinks}
@@ -194,10 +196,6 @@ class App extends Component {
         />;
       case 'products index':
         return <ProductView
-          userInfo={this.state.userInfo}
-          companies={this.state.companies}
-          favorites={this.state.favorites}
-          products={this.state.products}
           handleProductLink={this.handleProductLink}
           deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
@@ -205,6 +203,10 @@ class App extends Component {
           createProduct={this.createProduct}
           addFavorite={this.addFavorite}
           handleLinks={this.handleLinks}
+          companies={this.state.companies}
+          favorites={this.state.favorites}
+          userInfo={this.state.userInfo}
+          products={this.state.products}
         />;
       case 'favorites page':
         return <FavoritesView
@@ -213,6 +215,7 @@ class App extends Component {
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
           addFavorite={this.addFavorite}
+          countFavorites={this.state.countFavorites}
           companies={this.state.companies}
           favorites={this.state.favorites}
           userInfo={this.state.userInfo}
@@ -232,10 +235,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header
-          userInfo={this.state.userInfo}
-          handleLinks={this.handleLinks}
-          handleLoginClick={this.handleLoginClick}
           handleLogoutSubmit={this.handleLogoutSubmit}
+          handleLoginClick={this.handleLoginClick}
+          handleLinks={this.handleLinks}
+          userInfo={this.state.userInfo}
         />
         {this.pageView()}
       </div>

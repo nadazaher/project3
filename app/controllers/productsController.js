@@ -20,7 +20,6 @@ module.exports = {
   },
 
   createNewProduct(req, res, next) {
-    console.log(req.body);
     db.addNewProduct(req.body)
       .then((product) => {
         res.locals.data = product;
@@ -30,7 +29,6 @@ module.exports = {
   },
 
   deleteProduct(req, res, next) {
-    console.log('nada delete');
     db.delete(req.params.id)
       .then(() => {
         next();
@@ -41,15 +39,17 @@ module.exports = {
   },
 
   updateProduct(req, res, next) {
-    const { id } = req.params.id
-    const { company_id, name, product_type, msrp, logo } = req.body;
+    const { id } = req.params.id;
+    const {
+      company_id, name, product_type, msrp, logo,
+    } = req.body;
     const modifiedProduct = {
-      id: req.params.id,
+      id,
       company_id,
       name,
       product_type,
       msrp,
-      logo
+      logo,
     };
     db.update(modifiedProduct)
       .then((product) => {
