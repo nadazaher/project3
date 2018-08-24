@@ -84,13 +84,18 @@ class ProductList extends Component {
                   e.preventDefault();
                   e.stopPropagation();
                   // setting specific product data for edit form - edit presets values in input form, setState will allow you to change the state/input in those fields when editing
-                  this.setState({
-                    productIsEditing: product.id,
-                    productURL: product.logo,
-                    productName: product.name,
-                    productType: product.product_type,
-                    productMSRP: product.msrp,
-                  });
+                  this.props.userInfo
+                    ?
+                    this.setState({
+                      productIsEditing: product.id,
+                      productURL: product.logo,
+                      productName: product.name,
+                      productType: product.product_type,
+                      productMSRP: product.msrp,
+                    })
+                    :
+                    this.props.handleLinks('login page')
+
                 })
                 } >  <FontAwesomeIcon icon="pencil-alt" />
 
@@ -102,7 +107,11 @@ class ProductList extends Component {
                   // stopPropogation keeps the event from following the click that happens to the entire div
                   e.stopPropagation();
                   // takes id of product and deletes it from database
-                  this.props.deleteProduct(product.id);
+                  this.props.userInfo
+                    ?
+                    this.props.deleteProduct(product.id)
+                    :
+                    this.props.handleLinks('login page')
                 })}><FontAwesomeIcon icon="trash-alt" /></button></div>
                 {/* favorite button */}
                 {/* checking to see if there is a user logged in and if they have favorites. then we check if the current product is in there favorites */}
@@ -144,3 +153,6 @@ class ProductList extends Component {
 }
 
 export default ProductList;
+
+
+

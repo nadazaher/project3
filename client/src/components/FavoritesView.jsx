@@ -4,10 +4,9 @@ import PieChart from "react-svg-piechart"
 
 function FavoritesView(props) {
   return (
-    
+
     <div>
-      <div className="columns">
-        <div className="column">
+      <div className="need to make this guys smaller">
         <PieChart
           data={props.favoritesStats}
           expandOnHover={true}
@@ -16,16 +15,14 @@ function FavoritesView(props) {
           strokeColor="#fff"
           strokeLinejoin="round"
           strokeWidth={1}
-          viewBoxSize={25}
-        /></div>
-        <div className="column">
-          {
-            props.countFavorites.filter(favorite => favorite.length).map((favorite) =>
-              (<div key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(2)}%</div>)
-            )
-          }
-        </div>
+          viewBoxSize={10}
+        />
       </div>
+      {
+        props.countFavorites.filter(favorite => favorite.length).map((favorite) =>
+          (<div key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(2)}%</div>)
+        )
+      }
       <h1 className="favoritestitle">
         My favorite products:
         </h1>
@@ -42,7 +39,7 @@ function FavoritesView(props) {
         products={props.favorites}
         userInfo={props.userInfo}
       />
-    </div>
+    </div >
   )
 }
 
