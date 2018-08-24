@@ -187,7 +187,7 @@ class App extends Component {
         />;
       case 'favorites page':
         return <FavoritesView
-          handleProductLink={this.state.handleProductLink}
+          handleProductLink={this.handleProductLink}
           deleteProduct={this.state.deleteProduct}
           updateProduct={this.state.updateProduct}
           companies={this.state.companies}

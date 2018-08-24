@@ -9,6 +9,7 @@ module.exports = {
       f.id AS favorite_id,
       p.id AS id,
       p.company_id AS company_id,
+      p.company AS company,
       p.name AS name,
       p.product_type AS product_type,
       p.msrp AS msrp,
