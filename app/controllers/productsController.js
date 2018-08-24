@@ -44,7 +44,7 @@ module.exports = {
       company_id, name, product_type, msrp, logo,
     } = req.body;
     const modifiedProduct = {
-      id: re.body.id,
+      id: req.body.id,
       company_id,
       name,
       product_type,
