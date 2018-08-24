@@ -57,20 +57,25 @@ class ProductView extends Component {
           userInfo={this.props.userInfo}
           products={this.props.products}
           filterFN={this.filterFN}
-          />
+        />
         <hr />
         <div className="bottom createform">
           <h3 className="addnewproduct">Add new product:</h3>
 
           <form onSubmit={((e) => {
             e.preventDefault();
-            this.props.createProduct({
-              company_id: this.state.productCompany,
-              name: this.state.productName,
-              product_type: this.state.productType,
-              msrp: this.state.productMSRP,
-              logo: this.state.productURL
-            });
+
+            this.props.userInfo
+              ?
+              this.props.createProduct({
+                company_id: this.state.productCompany,
+                name: this.state.productName,
+                product_type: this.state.productType,
+                msrp: this.state.productMSRP,
+                logo: this.state.productURL
+              })
+              :
+              this.props.handleLinks('login page');
             this.setState({
               productCompany: 1,
               productURL: '',
@@ -96,7 +101,7 @@ class ProductView extends Component {
             <button className="createbutton">Create</button>
           </form>
         </div>
-      </div>
+      </div >
     )
   }
 
