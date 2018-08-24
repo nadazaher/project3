@@ -269,3 +269,9 @@
 .login input[type="submit"]:focus {
   border-color: #FFCB28;
 }
+
+.piechart {
+  justify-content: center;
+  height:500px;
+  width: 500px;
+}

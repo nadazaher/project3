@@ -6,23 +6,27 @@ function FavoritesView(props) {
   return (
 
     <div>
-      <div className="need to make this guys smaller">
+      <div className="columns">
+      <div className="column piechart">
         <PieChart
           data={props.favoritesStats}
           expandOnHover={true}
-          expandSize={5}
+          expandSize={1}
           shrinkOnTouchEnd={false}
           strokeColor="#fff"
           strokeLinejoin="round"
-          strokeWidth={1}
+          strokeWidth={0}
           viewBoxSize={10}
         />
       </div>
+      <div className="column">
       {
         props.countFavorites.filter(favorite => favorite.length).map((favorite) =>
           (<div key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(2)}%</div>)
         )
       }
+      </div>
+      </div>
       <h1 className="favoritestitle">
         My favorite products:
         </h1>
