@@ -29,4 +29,15 @@ module.exports = {
       });
   },
 
+  countFavorite(req, res, next) {
+    db.countCompanies(req.params.id)
+      .then((favorites) => {
+        res.locals.favorites = favorites;
+        next();
+      })
+      .catch((e) => {
+        res.sendStatus(400);
+      });
+  },
+
 };

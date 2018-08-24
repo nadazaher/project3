@@ -37,4 +37,11 @@ module.exports = {
     where id = $1`, id);
   },
 
+  countCompanies(id) {
+    return db.any(`
+    SELECT COUNT(*) FROM favorites f
+    JOIN products p ON f.product_id = p.id
+    WHERE p.company_id = $1`, id);
+  },
+
 };

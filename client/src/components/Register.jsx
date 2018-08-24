@@ -14,7 +14,6 @@ class Register extends Component {
 
     //use same comments for Login.jsx
 
-
     // deconstruct [name] to = username and password out of target - so name and value taken from input in form
     handleChange(ev) {
         const { name, value } = ev.target;
@@ -32,10 +31,11 @@ class Register extends Component {
 
                     <form className="login-container" onSubmit={(e) => {
                         e.preventDefault();
-                        this.props.handleLoginSubmit(
+                        this.props.handleRegisterSubmit(
                             this.state.username,
                             this.state.password
                         );
+                        this.props.favoriteCount();
                         this.props.handleLinks('landing page');
                     }
                     } >
@@ -58,4 +58,3 @@ class Register extends Component {
 }
 
 export default Register;
-

@@ -3,19 +3,20 @@ const favoritesController = require('../controllers/favoritesController');
 
 const favoritesRouter = express.Router();
 
+favoritesRouter.get('/count/:id',
+  favoritesController.countFavorite,
+  (req, res) => res.json(res.locals.favorites));
+
 favoritesRouter.delete('/:id',
   favoritesController.deleteFavorite,
-  (req, res) => res.json(res.locals.favorites),
-);
+  (req, res) => res.json(res.locals.favorites));
 
 favoritesRouter.get('/',
   favoritesController.getAllFavorites,
-  (req, res) => res.json(res.locals.favorites),
-);
+  (req, res) => res.json(res.locals.favorites));
 
 favoritesRouter.post('/',
   favoritesController.createNewFavorite,
-  (req, res) => res.json({ favorite: res.locals.data }),
-);
+  (req, res) => res.json({ favorite: res.locals.data }));
 
 module.exports = favoritesRouter;

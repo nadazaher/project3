@@ -8,7 +8,7 @@ import ProductView from './components/ProductView';
 import Register from './components/Register';
 import Header from './components/Header';
 import Login from './components/Login';
-import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites, saveFavorites, destroyFavorites } from './services/api';
+import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites, saveFavorites, destroyFavorites, countCompanies } from './services/api';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class App extends Component {
       userInfo: null,
       currentCompany: null,
       favorites: null,
+      countFavorites: []
     }
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.handleLogoutSubmit = this.handleLogoutSubmit.bind(this);
@@ -30,6 +31,7 @@ class App extends Component {
     this.createProduct = this.createProduct.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
+    this.favoriteCount = this.favoriteCount.bind(this);
     this.handleLinks = this.handleLinks.bind(this);
     this.addFavorite = this.addFavorite.bind(this);
   }
@@ -139,6 +141,19 @@ class App extends Component {
       .then(data => this.setState({ favorites: data }))
   }
 
+  favoriteCount() {
+    const dataArr = []
+    this.state.companies.forEach((company) => {
+      debugger;
+      countCompanies(company.id)
+        .then(data => dataArr.push(data))
+        .then(data => this.setState({
+          countFavorites: dataArr
+        }))
+    })
+  }
+
+
   // pageView (switch-case function) will check the currentView and return the respective page - this is how you are able to change view on the fly without reloading - need to pass down functions here so you can use them in child components as this.props
   pageView() {
     const { currentView } = this.state;
@@ -147,23 +162,25 @@ class App extends Component {
       case 'login page':
         return <Login
           handleLoginSubmit={this.handleLoginSubmit}
-          handleLinks={this.handleLinks}
-        />;
-
-      case 'register page':
-        return <Register
-          handleRegisterSubmit={this.handleRegisterSubmit}
+          favoriteCount={this.favoriteCount}
           handleLinks={this.handleLinks}
           />;
           
-          case 'companies index':
-          return <CompanyView
+          case 'register page':
+          return <Register
+          handleRegisterSubmit={this.handleRegisterSubmit}
+          favoriteCount={this.favoriteCount}
+          handleLinks={this.handleLinks}
+        />;
+
+      case 'companies index':
+        return <CompanyView
           handleCompanyLink={this.handleCompanyLink}
           companies={this.state.companies}
           userInfo={this.state.userInfo}
-          />;
-          case 'company page':
-          return <CompanyInfoPage
+        />;
+      case 'company page':
+        return <CompanyInfoPage
           handleProductLink={this.handleProductLink}
           deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
@@ -174,9 +191,9 @@ class App extends Component {
           favorites={this.state.favorites}
           userInfo={this.state.userInfo}
           products={this.state.products}
-          />;
-          case 'products index':
-          return <ProductView
+        />;
+      case 'products index':
+        return <ProductView
           userInfo={this.state.userInfo}
           companies={this.state.companies}
           favorites={this.state.favorites}
@@ -188,9 +205,9 @@ class App extends Component {
           createProduct={this.createProduct}
           addFavorite={this.addFavorite}
           handleLinks={this.handleLinks}
-          />;
-          case 'favorites page':
-          return <FavoritesView
+        />;
+      case 'favorites page':
+        return <FavoritesView
           handleProductLink={this.handleProductLink}
           deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
@@ -199,11 +216,11 @@ class App extends Component {
           companies={this.state.companies}
           favorites={this.state.favorites}
           userInfo={this.state.userInfo}
-          />
-          default:
-          return <LandingPage
+        />
+      default:
+        return <LandingPage
           handleLinks={this.handleLinks}
-          />;
+        />;
 
     }
   }

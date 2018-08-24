@@ -28,8 +28,7 @@ module.exports = {
       p.logo AS logo
       FROM products p
       JOIN companies c ON (c.id = p.company_id)
-      WHERE p.id=$1`, id
-    );
+      WHERE p.id=$1`, id);
   },
 
   addNewProduct(product) {

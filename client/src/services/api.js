@@ -129,3 +129,11 @@ export function destroyFavorites(favorite) {
     throw Error(err);
   });
 }
+
+export function countCompanies(id) {
+  return fetch(`${BASE_URL}/favorites/count/${id}`)
+    .then(resp => resp.json())
+    .catch(err => {
+      throw Error(err);
+    });
+}

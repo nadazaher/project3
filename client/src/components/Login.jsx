@@ -34,6 +34,7 @@ class Login extends Component {
                             this.state.username,
                             this.state.password
                         );
+                        this.props.favoriteCount();
                         this.props.handleLinks('landing page');
                     }
                     } >
