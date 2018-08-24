@@ -48,6 +48,7 @@ module.exports = {
   },
 
   update(product) {
+    console.log(product);
     return db.one(`
       UPDATE products
       SET 
