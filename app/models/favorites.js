@@ -39,7 +39,7 @@ module.exports = {
 
   countCompanies(id) {
     return db.one(`
-    SELECT COUNT(*) FROM favorites f
+    SELECT COUNT(*), p.company_id AS company_id FROM favorites f
     JOIN products p ON f.product_id = p.id
     WHERE p.company_id = $1`, id);
   },
