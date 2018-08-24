@@ -18,6 +18,10 @@ UPDATE:
 DELETE:
 6)	As a user, I would like to delete products from a specific conglomerate. 
 
+## Motivation
+We were curious to know who were the corporations behind our favorite products. We came across this map showing our various companies 
+and the products they made and that inspired us to make our app. http://www.convergencealimentaire.info/map.jpg
+
 ## Setup Instructions
 After cloning do
 
@@ -57,3 +61,12 @@ This website is designed for young, curious consumers who are also looking to in
 - Adding an admin to approve any submissions or edits before being posted
 - Matching game for interactivity (users can have high scores)
 - Personalized suggestions for inveting
+
+## Citations
+https://codepen.io/miroot/pen/qwIgC
+
+Our inspiration for the login page came from this codepen.
+
+https://bulma.io/documentation/
+
+We incorporated bulma into our styling.
