@@ -106,14 +106,17 @@ class ProductList extends Component {
                 })}><FontAwesomeIcon icon="trash-alt" /></button></div>
                 {/* favorite button */}
                 {
-                  this.props.userInfo && (this.props.favorites.filter(favorite => favorite.user_id === this.props.userInfo.id).map((idx) => idx.id).includes(product.id))
+                  this.props.userInfo
+                  &&
+                  this.props.favorites.filter(favorite => favorite.user_id === this.props.userInfo.id)
+                  &&
+                  (this.props.favorites.filter(favorite => favorite.user_id === this.props.userInfo.id).map((idx) => idx.id).includes(product.id))
                     ?
                     (<div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
                       e.preventDefault();
                       // stopPropogation keeps the event from following the click that happens to the entire div
                       e.stopPropagation();
                       let currentFavorite = this.props.favorites.filter((favorite) => favorite.id === product.id).filter(favorite => favorite.user_id === this.props.userInfo.id);
-                      console.log(currentFavorite);
                       this.props.deleteFavorite(currentFavorite[0].favorite_id);
                     })}><FontAwesomeIcon icon={["fas", "heart"]} /></button></div>)
                     :

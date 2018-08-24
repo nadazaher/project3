@@ -29,7 +29,7 @@ function HeaderOne(props) {
                       <div class="navbar-item has-dropdown is-hoverable"
                       >
                         <a class="navbar-link has-text-black">
-                          <FontAwesomeIcon icon="user" /> {props.userInfo.username}
+                          <FontAwesomeIcon icon="user" />&nbsp;{props.userInfo.username}
                         </a>
                         <div class="navbar-dropdown is-right">
                           <a class="navbar-item has-text-black"
