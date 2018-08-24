@@ -120,6 +120,10 @@ https://bulma.io/documentation/
 
 We incorporated bulma into our styling.
 
+https://www.npmjs.com/package/react-svg-piechart
+
+We used the node package to create our favorites piechart
+
 https://www.paulirish.com/2009/random-hex-color-code-snippets/
 
 Paul Irish is a front end web dev for google. He came up with a genious way to randomly generate hex colors. we incorporated this in our "favorites" piechart
