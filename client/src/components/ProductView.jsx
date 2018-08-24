@@ -40,20 +40,27 @@ class ProductView extends Component {
     return (
       <div>
         <input
-          className ="input is-one-half searchInput"
+          className="input is-one-half searchInput"
           type="text"
           placeholder="Search for a product"
           value={this.state.inputValue}
           onChange={this.setInput}
         />
-        <ProductList products={this.props.products}
-          filterFN={this.filterFN}
+        <ProductList
           handleProductLink={this.props.handleProductLink}
+          deleteFavorite={this.props.deleteFavorite}
           deleteProduct={this.props.deleteProduct}
-          updateProduct={this.props.updateProduct} />
+          updateProduct={this.props.updateProduct}
+          handleLinks={this.props.handleLinks}
+          addFavorite={this.props.addFavorite}
+          favorites={this.props.favorites}
+          userInfo={this.props.userInfo}
+          products={this.props.products}
+          filterFN={this.filterFN}
+          />
         <hr />
         <div className="bottom createform">
-        <h3 className="addnewproduct">Add new product:</h3>
+          <h3 className="addnewproduct">Add new product:</h3>
 
           <form onSubmit={((e) => {
             e.preventDefault();
@@ -75,7 +82,7 @@ class ProductView extends Component {
             <select className="createinputs"
               onChange={this.handleChange}
               name="productCompany"
-              >
+            >
               {
                 this.props.companies.map((company) => (
                   <option key={company.id} value={company.id}>{company.name}</option>

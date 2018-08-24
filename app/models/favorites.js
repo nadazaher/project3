@@ -6,6 +6,7 @@ module.exports = {
     return db.many(`
       SELECT 
       f.user_id AS user_id,
+      f.id AS favorite_id,
       p.id AS id,
       p.company_id AS company_id,
       p.name AS name,

@@ -7,6 +7,7 @@ function FavoritesView(props) {
       <div>
         List of my favorites:
         <ProductList
+          favorites={props.favorites}
           companies={props.companies}
           products={props.favorites}
           filterFN={(product) => product.user_id === props.userInfo.id}

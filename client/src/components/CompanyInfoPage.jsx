@@ -7,8 +7,8 @@ function CompanyInfoPage(props) {
     <div>
       <div className="columns">
         <div className="column">
-<figure className="image">
-  {/* // use .currentCompany because thats how its set in state in app.jsx using props since you are sendind these components down from the state in app.jsx - no need for this.props because its a function not class component */}
+          <figure className="image">
+            {/* // use .currentCompany because thats how its set in state in app.jsx using props since you are sendind these components down from the state in app.jsx - no need for this.props because its a function not class component */}
             <img src={props.currentCompany.logo} />
           </figure>
           <div>{props.currentCompany.description}</div>
@@ -20,14 +20,14 @@ function CompanyInfoPage(props) {
           <div><strong>Date founded:</strong>&nbsp;{props.currentCompany.date_founded}</div>
           <div><strong>Industry:</strong>&nbsp;{props.currentCompany.industry}</div>
           <div><strong>Headquarters:</strong>&nbsp;{props.currentCompany.headquarters}</div>
-          <div><a href={props.currentCompany.stock_symbol}>Stock info</a></div>
+          {!(props.currentCompany.stock_symbol === "private") &&(<div><a href={props.currentCompany.stock_symbol}>Stock info</a></div>)}
         </div>
       </div>
       <hr />
       <p> Products </p>
       <hr />
       <ProductList
-      // passing all these functions as props since they are being brought down from state ProductList.jsx 
+        // passing all these functions as props since they are being brought down from state ProductList.jsx 
         products={props.products}
         filterFN={((product => product.company === props.currentCompany.name))}
         handleProductLink={props.handleProductLink}

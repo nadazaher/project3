@@ -102,10 +102,10 @@ export function fetchFavorites() {
     });
 }
 
-export function saveFavorites(Favorite) {
+export function saveFavorites(favorite) {
   const opts = {
     method: 'POST',
-    body: JSON.stringify(Favorite),
+    body: JSON.stringify(favorite),
     headers: {
       'Content-Type': 'application/json'
     }
@@ -119,12 +119,12 @@ export function saveFavorites(Favorite) {
   });
 }
 
-export function destroyFavorites(Favorite) {
+export function destroyFavorites(favorite) {
   const opts = {
     method: 'DELETE'
   }
   
-  return fetch(`${BASE_URL}/favorites/${Favorite}`, opts)
+  return fetch(`${BASE_URL}/favorites/${favorite}`, opts)
   .catch(err => {
     throw Error(err);
   });
