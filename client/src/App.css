@@ -38,7 +38,7 @@
 }
 
 .scrollable {
-  height: 65vh;
+  height: 75vh;
   overflow: scroll;
 }
 
@@ -51,8 +51,44 @@
   height:95vh;
 }
 
+.image {
+  margin-left: auto;
+  margin-right: auto;
+  max-inline-size: 170px;
+  margin-top: 15px;
+  margin-bottom: 12px;
+
+}
+
+.description {
+  text-align: center;
+  font-size: 18px;
+  width: 150vh;
+  margin-right: auto;
+  margin-left: auto;
+  
+
+}
+
+.companyinfo {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.productstitle {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .big-image {
  height: 157px;
+}
+
+.line {
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
 }
 
 .columnheader {
@@ -71,6 +107,7 @@
 .searchInput {
   font-size: 18px;
   margin-bottom: 20px;
+  margin-top: 20px;
   text-align: center;
   height: 10vh;
 } 
@@ -87,28 +124,30 @@
 }
 
 .createform {
-  background-color: lightskyblue;
+  background-color: #459CE9;
   
 }
 
 .createinputs {
   font-size: 16px;
   margin-right: 5px;
-  
+  color: black;
 }
+
 
 .createbutton {
   height: 25px;
   font-size: 14px;
+  color: white;
   font-weight: bold;
   position: fixed;
   width: 120px;
-  background-color: lightseagreen;
-  border: solid 0.5px lightseagreen;
+  background-color:  #FFAF3E;
+  border: solid 0.5px #FFAF3E;
 }
 
 .hello {
-  margin-top: 123px;
+  margin-top: 135px;
 }
 
 .container3:hover{
