@@ -1,40 +1,62 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Header(props) {
+function HeaderOne(props) {
   return (
     <div>
-      <div className="navbar header">
-
-        <div className="container3">
-        <h1 className="navbar-item" onClick={() => props.handleLinks('landing page')}>One Big Ten</h1>
-        </div>
-        <div className="navbar-end">
-          {/* // here javascript is checking if the user is logged in (if username is in localStorage), if he/she is logged in then user will be able to see the dropdown navbar menu - notice the ternary operator ? :  also we set localStorage in state so it can refresh the page*/}
-          {props.userInfo
-            ?
-            (<div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">{props.userInfo.username}
+      {/* Start Header */}
+      <div class="hero-head">
+        <header class="navbar is-info newheader">
+          <div class="container ">
+            <div class="navbar-brand ">
+              <a class="navbar-item ">
+                <h1 class="title is-size-3  has-text-black"
+                  onClick={() => props.handleLinks('landing page')}>OneOfTen</h1>
               </a>
-              <div className="navbar-dropdown is-right">
-                <a className="navbar-item" onClick={() => props.handleLinks('favorites page')}>Favorites</a>
-                {/* <a className="navbar-item">High Score</a> */}
-                <hr className="navbar-divider" />
-                <a className="navbar-item" onClick={props.handleLogoutSubmit}>Logout</a>
-              </div>
-            </div>)
-            :
-            (<div onClick={() => props.handleLinks('login page')} className="navbar-item">Login</div>)
-          }
-        </div>
-        {/* //handleLinks is a function that allows you to switch to another view() */}
-      </div>
-      <div className="columns is-multiline navigation">
-        <div className="column is-one-half" onClick={() => props.handleLinks('companies index')}>Companies</div>
-        <div className="column is-one-half" onClick={() => props.handleLinks('products index')}>Products</div>
-      </div>
 
+            </div>
+            <div id="navbarMenuHero" class="navbar-menu">
+              <div class="navbar-end">
+                <a class="navbar-item has-text-black is-size-5"
+                  onClick={() => props.handleLinks('companies index')}>COMPANIES </a>
+                <a class="navbar-item has-text-black is-size-5"
+                  onClick={() => props.handleLinks('products index')}>PRODUCTS </a>
+                {/* // here javascript is checking if the user is logged in (if username is in localStorage), if he/she is logged in then user will be able to see the dropdown navbar menu - notice the ternary operator ? :  also we set localStorage in state so it can refresh the page*/}
+                {
+                  props.userInfo
+                    ?
+                    (
+                      <div class="navbar-item has-dropdown is-hoverable"
+                      >
+                        <a class="navbar-link has-text-black">
+                          <FontAwesomeIcon icon="user" />&nbsp;{props.userInfo.username}
+                        </a>
+                        <div class="navbar-dropdown is-right">
+                          <a class="navbar-item has-text-black"
+                            onClick={() => props.handleLinks('favorites page')}> My Favorites</a>
+                          <hr className="navbar-divider" />
+                          <a class="navbar-item has-text-black"
+                            onClick={props.handleLogoutSubmit}> Logout</a>
+                        </div>
+                      </div>
+                    )
+                    :
+                    (
+                      <span class="navbar-item" onClick={() => props.handleLinks('login page')}>
+                        <a class="button is-light">
+                          <span>Login</span>
+                        </a>
+                      </span>
+                    )
+                }
+
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
     </div>
   );
 }
 
-export default Header;
+export default HeaderOne;

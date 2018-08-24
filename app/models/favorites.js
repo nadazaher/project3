@@ -6,14 +6,17 @@ module.exports = {
     return db.many(`
       SELECT 
       f.user_id AS user_id,
+      f.id AS favorite_id,
       p.id AS id,
       p.company_id AS company_id,
+      c.name AS company,
       p.name AS name,
       p.product_type AS product_type,
       p.msrp AS msrp,
       p.logo AS logo
       FROM favorites f
       JOIN products p ON f.product_id = p.id
+      JOIN companies c ON p.company_id = c.id
       ORDER BY f.user_id, f.product_id;
     `);
   },

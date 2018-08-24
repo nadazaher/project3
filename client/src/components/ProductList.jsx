@@ -35,9 +35,9 @@ class ProductList extends Component {
           <div className="column is-one-seventh top"> Name </div>
           <div className="column is-one-seventh top"> Type </div>
           <div className="column is-one-seventh top"> MSRP </div>
-          <div className="column is-one-seventh">  </div>
-          <div className="column is-one-seventh">  </div>
-          <div className="column is-one-seventh">  </div>
+          <div className="column is-one-seventh top"> Edit </div>
+          <div className="column is-one-seventh top"> Delete </div>
+          <div className="column is-one-seventh top"> Favorite </div>
         </div>
         {this.props.products.filter(this.props.filterFN).map((product) =>
           // checking if productIsEditing variable from state is truthy or falsey
@@ -76,9 +76,7 @@ class ProductList extends Component {
 
             (<div className="container3">
               <div className="columns" key={product.id} onClick={() => this.props.handleProductLink('company page', product.company)}>
-                <div className="column is-one-seventh"><figure className="image is-96x96 plogo">
-                  <img src={product.logo} />
-                </figure></div>
+                <div className="column is-one-seventh"><img src={product.logo} className="pimg" /></div>
                 <div className="column is-one-seventh" >{product.name}</div>
                 <div className="column is-one-seventh">{product.product_type}</div>
                 <div className="column is-one-seventh">{product.msrp}</div>
@@ -104,17 +102,38 @@ class ProductList extends Component {
                   // stopPropogation keeps the event from following the click that happens to the entire div
                   e.stopPropagation();
                   // takes id of product and deletes it from database
-                  debugger;
                   this.props.deleteProduct(product.id);
                 })}><FontAwesomeIcon icon="trash-alt" /></button></div>
-
-                <div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  // this.props.deleteProduct(product.id);
-                })}><FontAwesomeIcon icon={["fas", "heart"]} />
-                  <FontAwesomeIcon icon={["far", "heart"]} />
-                </button></div>
+                {/* favorite button */}
+                {/* checking to see if there is a user logged in and if they have favorites. then we check if the current product is in there favorites */}
+                {
+                  this.props.userInfo
+                    &&
+                    this.props.favorites.filter(favorite => favorite.user_id === this.props.userInfo.id)
+                    &&
+                    (this.props.favorites.filter(favorite => favorite.user_id === this.props.userInfo.id).map((idx) => idx.id).includes(product.id))
+                    ?
+                    // display a solid heart button is the current product is in the users favorties  
+                    (<div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
+                      e.preventDefault();
+                      // stopPropogation keeps the event from following the click that happens to the entire div
+                      e.stopPropagation();
+                      let currentFavorite = this.props.favorites.filter((favorite) => favorite.id === product.id).filter(favorite => favorite.user_id === this.props.userInfo.id);
+                      this.props.deleteFavorite(currentFavorite[0].favorite_id);
+                    })}><FontAwesomeIcon icon={["fas", "heart"]} /></button></div>)
+                    :
+                    // display a hollow heart button is the current product is not in the users favorties  
+                    (<div className="column is-one-seventh"><button className="edit-delete-favorite-button" value={product.id} onClick={((e) => {
+                      e.preventDefault();
+                      // stopPropogation keeps the event from following the click that happens to the entire div
+                      e.stopPropagation();
+                      this.props.userInfo
+                        ?
+                        this.props.addFavorite({ user_id: this.props.userInfo.id, product_id: product.id })
+                        :
+                        this.props.handleLinks('login page')
+                    })}><FontAwesomeIcon icon={["far", "heart"]} /></button></div>)
+                }
               </div>
             </div>
             )

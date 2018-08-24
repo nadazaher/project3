@@ -6,9 +6,9 @@ import CompanyView from './components/CompanyView';
 import LandingPage from './components/LandingPage';
 import ProductView from './components/ProductView';
 import Register from './components/Register';
-import HeaderOne from './components/HeaderOne';
+import Header from './components/Header';
 import Login from './components/Login';
-import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites } from './services/api';
+import { fetchCompanies, fetchProducts, saveProduct, modifyProduct, destroyProduct, loginUser, registerUser, fetchFavorites, saveFavorites, destroyFavorites } from './services/api';
 
 class App extends Component {
   constructor(props) {
@@ -26,10 +26,12 @@ class App extends Component {
     this.handleCompanyLink = this.handleCompanyLink.bind(this);
     this.handleProductLink = this.handleProductLink.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+    this.deleteFavorite = this.deleteFavorite.bind(this);
     this.createProduct = this.createProduct.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
     this.deleteProduct = this.deleteProduct.bind(this);
     this.handleLinks = this.handleLinks.bind(this);
+    this.addFavorite = this.addFavorite.bind(this);
   }
 
   // default for React - when App loads synchronously make all these funcitions - get products and get companies - change setState when page loads to have data - this function never gets called
@@ -125,6 +127,18 @@ class App extends Component {
       })
   }
 
+  addFavorite(favorite) {
+    saveFavorites(favorite)
+      .then(data => fetchFavorites())
+      .then(data => this.setState({ favorites: data }))
+  }
+
+  deleteFavorite(favorite) {
+    destroyFavorites(favorite)
+      .then(data => fetchFavorites())
+      .then(data => this.setState({ favorites: data }))
+  }
+
   // pageView (switch-case function) will check the currentView and return the respective page - this is how you are able to change view on the fly without reloading - need to pass down functions here so you can use them in child components as this.props
   pageView() {
     const { currentView } = this.state;
@@ -132,57 +146,64 @@ class App extends Component {
     switch (currentView) {
       case 'login page':
         return <Login
-          handleLinks={this.handleLinks}
           handleLoginSubmit={this.handleLoginSubmit}
+          handleLinks={this.handleLinks}
         />;
 
       case 'register page':
         return <Register
-          handleLinks={this.handleLinks}
           handleRegisterSubmit={this.handleRegisterSubmit}
-        />;
-
-      case 'companies index':
-        return <CompanyView
-          companies={this.state.companies}
+          handleLinks={this.handleLinks}
+          />;
+          
+          case 'companies index':
+          return <CompanyView
           handleCompanyLink={this.handleCompanyLink}
-        />;
-      case 'company page':
-        return <CompanyInfoPage
-          products={this.state.products}
-          currentCompany={this.state.currentCompany}
+          companies={this.state.companies}
+          userInfo={this.state.userInfo}
+          />;
+          case 'company page':
+          return <CompanyInfoPage
           handleProductLink={this.handleProductLink}
+          deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
-        />;
-      case 'products index':
-        return <ProductView
+          addFavorite={this.addFavorite}
+          handleLinks={this.handleLinks}
+          currentCompany={this.state.currentCompany}
+          favorites={this.state.favorites}
+          userInfo={this.state.userInfo}
+          products={this.state.products}
+          />;
+          case 'products index':
+          return <ProductView
+          userInfo={this.state.userInfo}
           companies={this.state.companies}
+          favorites={this.state.favorites}
           products={this.state.products}
           handleProductLink={this.handleProductLink}
+          deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
           createProduct={this.createProduct}
-        />;
-        case 'favorites page':
-        return <FavoritesView 
-        userInfo={this.state.userInfo}
-        products={this.state.products}
-
-        />;
-      case 'favorites page':
-        return <FavoritesView
+          addFavorite={this.addFavorite}
+          handleLinks={this.handleLinks}
+          />;
+          case 'favorites page':
+          return <FavoritesView
+          handleProductLink={this.handleProductLink}
+          deleteFavorite={this.deleteFavorite}
+          deleteProduct={this.deleteProduct}
+          updateProduct={this.updateProduct}
+          addFavorite={this.addFavorite}
           companies={this.state.companies}
           favorites={this.state.favorites}
-          handleProductLink={this.state.handleProductLink}
-          deleteProduct={this.state.deleteProduct}
-          updateProduct={this.state.updateProduct}
           userInfo={this.state.userInfo}
-        />
-      default:
-        return <LandingPage 
-        handleLinks={this.handleLinks}
-        />;
+          />
+          default:
+          return <LandingPage
+          handleLinks={this.handleLinks}
+          />;
 
     }
   }
@@ -193,10 +214,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderOne
+        <Header
           userInfo={this.state.userInfo}
           handleLinks={this.handleLinks}
           handleLoginClick={this.handleLoginClick}
+          handleLogoutSubmit={this.handleLogoutSubmit}
         />
         {this.pageView()}
       </div>
