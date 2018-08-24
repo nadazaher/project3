@@ -12,6 +12,7 @@
 .newheader{
   height: 5vh;
 }
+
 .navigation {
   height: 10vh;
   padding: 20px;
@@ -50,6 +51,7 @@
 .newnewscrollable {
   height:95vh;
 }
+
 
 .image {
   margin-left: auto;
@@ -148,6 +150,7 @@
 
 .hello {
   margin-top: 135px;
+  position: fixed;
 }
 
 .container3:hover{
