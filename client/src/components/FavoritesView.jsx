@@ -5,7 +5,10 @@ function FavoritesView(props) {
   return (
     <div>
       <div>
-        List of my favorites:
+        <h1 className="favoritestitle">
+        My favorite products:
+        </h1>
+        <hr className="line"></hr>
         <ProductList
           filterFN={(product) => product.user_id === props.userInfo.id}
           handleProductLink={props.handleProductLink}

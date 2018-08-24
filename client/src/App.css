@@ -80,6 +80,8 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  color:#FFCB28;
+  margin-bottom: 20px;
 }
 
 .big-image {
@@ -97,6 +99,20 @@
 
 .top {
   font-weight: bold;
+  text-decoration: underline;
+}
+
+.favoritestitle {
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFCB28;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.line {
+  margin-bottom: 20px;
 }
 
 .plogo {
@@ -119,8 +135,10 @@
 
 .addnewproduct {
   font-weight: bold;
-  margin-bottom: 11px;
-  margin-top: 11px;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  color: #FFCB28;
 }
 
 .createform {
@@ -132,18 +150,20 @@
   font-size: 16px;
   margin-right: 5px;
   color: black;
+  margin-bottom: 20px;
+
 }
 
 
 .createbutton {
   height: 25px;
   font-size: 14px;
-  color: white;
+  color: black;
   font-weight: bold;
   position: fixed;
   width: 120px;
-  background-color:  #FFAF3E;
-  border: solid 0.5px #FFAF3E;
+  background-color:  #FFCB28;
+  border: solid 0.5px #FFCB28;
 }
 
 .hello {
@@ -165,7 +185,7 @@
 
 .login {
   width: 400px;
-  margin: 16px auto;
+  margin: 100px auto;
   font-size: 16px;
 }
 
@@ -182,11 +202,11 @@
   margin-right: auto;
   margin-left: auto;
   border: 12px solid transparent;
-  border-bottom-color: #28d;
+  border-bottom-color: #FFCB28;
 }
 
 .login-header {
-  background: #28d;
+  background: #FFCB28;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
@@ -194,6 +214,7 @@
   text-transform: uppercase;
   color: #fff;
 }
+
 
 .login-container {
   background: #ebebeb;
@@ -231,17 +252,17 @@
 }
 
 .login input[type="submit"] {
-  background: #28d;
+  background: #FFCB28;
   border-color: transparent;
   color: #fff;
   cursor: pointer;
 }
 
 .login input[type="submit"]:hover {
-  background: #17c;
+  background: #FFCB28;
 }
 
 /* Buttons' focus effect */
 .login input[type="submit"]:focus {
-  border-color: #05a;
+  border-color: #FFCB28;
 }
