@@ -8,7 +8,7 @@ module.exports = {
       jwt.sign(
         payload,
         secret,
-        (err, token) => err ? reject(err) : resolve(token)
+        (err, token) => (err ? reject(err) : resolve(token)),
       );
     });
   },
@@ -18,7 +18,7 @@ module.exports = {
       jwt.verify(
         token,
         secret,
-        (err, payload) => err ? reject(err) : resolve(payload)
+        (err, payload) => (err ? reject(err) : resolve(payload)),
       );
     });
   },

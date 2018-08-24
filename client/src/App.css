@@ -157,10 +157,7 @@
 }
 
 
-.piechart {
-  max-inline-size: 200px;
-  margin: auto;
-}
+
 .pieinfo {
 position: relative;  
 margin-bottom: 0px;
@@ -286,7 +283,7 @@ margin-top: 10px;
 }
 
 .piechart {
-  justify-content: center;
-  height:500px;
-  width: 500px;
+  max-inline-size: 200px;
+  margin:auto;
 }
+

@@ -13,7 +13,7 @@ function FavoritesView(props) {
         <div className="pieinfo">
           {
             props.countFavorites.filter(favorite => favorite.length).map((favorite) =>
-              (<div className="stats" key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(2)}%</div>)
+              (<div className="stats" key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(0)}%</div>)
             )
           }
         </div>
