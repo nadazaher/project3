@@ -154,50 +154,56 @@ class App extends Component {
         return <Register
           handleRegisterSubmit={this.handleRegisterSubmit}
           handleLinks={this.handleLinks}
-        />;
-
-      case 'companies index':
-        return <CompanyView
-          companies={this.state.companies}
+          />;
+          
+          case 'companies index':
+          return <CompanyView
           handleCompanyLink={this.handleCompanyLink}
-        />;
-      case 'company page':
-        return <CompanyInfoPage
+          companies={this.state.companies}
           userInfo={this.state.userInfo}
-          currentCompany={this.state.currentCompany}
-          favorites={this.state.favorites}
-          products={this.state.products}
+          />;
+          case 'company page':
+          return <CompanyInfoPage
           handleProductLink={this.handleProductLink}
+          deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
-        />;
-      case 'products index':
-        return <ProductView
+          addFavorite={this.addFavorite}
+          handleLinks={this.handleLinks}
+          currentCompany={this.state.currentCompany}
+          favorites={this.state.favorites}
+          userInfo={this.state.userInfo}
+          products={this.state.products}
+          />;
+          case 'products index':
+          return <ProductView
           userInfo={this.state.userInfo}
           companies={this.state.companies}
           favorites={this.state.favorites}
           products={this.state.products}
           handleProductLink={this.handleProductLink}
+          deleteFavorite={this.deleteFavorite}
           deleteProduct={this.deleteProduct}
           updateProduct={this.updateProduct}
           createProduct={this.createProduct}
           addFavorite={this.addFavorite}
           handleLinks={this.handleLinks}
-          deleteFavorite={this.deleteFavorite}
-        />;
-      case 'favorites page':
-        return <FavoritesView
+          />;
+          case 'favorites page':
+          return <FavoritesView
           handleProductLink={this.handleProductLink}
-          deleteProduct={this.state.deleteProduct}
-          updateProduct={this.state.updateProduct}
+          deleteFavorite={this.deleteFavorite}
+          deleteProduct={this.deleteProduct}
+          updateProduct={this.updateProduct}
+          addFavorite={this.addFavorite}
           companies={this.state.companies}
           favorites={this.state.favorites}
           userInfo={this.state.userInfo}
-        />
-      default:
-        return <LandingPage
+          />
+          default:
+          return <LandingPage
           handleLinks={this.handleLinks}
-        />;
+          />;
 
     }
   }

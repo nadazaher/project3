@@ -7,13 +7,15 @@ function FavoritesView(props) {
       <div>
         List of my favorites:
         <ProductList
+          filterFN={(product) => product.user_id === props.userInfo.id}
+          handleProductLink={props.handleProductLink}
+          deleteFavorite={props.deleteFavorite}
+          deleteProduct={props.deleteProduct}
+          updateProduct={props.updateProduct}
+          addFavorite={props.addFavorite}
           favorites={props.favorites}
           companies={props.companies}
           products={props.favorites}
-          filterFN={(product) => product.user_id === props.userInfo.id}
-          handleProductLink={props.handleProductLink}
-          deleteProduct={props.deleteProduct}
-          updateProduct={props.updateProduct}
           userInfo={props.userInfo}
         />
       </div>

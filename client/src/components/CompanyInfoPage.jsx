@@ -28,11 +28,16 @@ function CompanyInfoPage(props) {
       <hr />
       <ProductList
         // passing all these functions as props since they are being brought down from state ProductList.jsx 
-        products={props.products}
         filterFN={((product => product.company === props.currentCompany.name))}
         handleProductLink={props.handleProductLink}
+        deleteFavorite={props.deleteFavorite}
         deleteProduct={props.deleteProduct}
         updateProduct={props.updateProduct}
+        addFavorite={props.addFavorite}
+        handleLinks={props.handleLinks}
+        favorites={props.favorites}
+        userInfo={props.userInfo}
+        products={props.products}
       />
     </div >
   )
