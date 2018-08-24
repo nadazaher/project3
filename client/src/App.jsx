@@ -65,7 +65,6 @@ class App extends Component {
         });
         localStorage.setItem('token', data.token);
       })
-      .catch(err => console.log("test"));
   }
 
   handleRegisterSubmit(username, password) {

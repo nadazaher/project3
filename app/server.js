@@ -33,16 +33,15 @@ app.use('/companies', companiesRouter);
 app.use('/products', productsRouter);
 app.use('/favorites', favRouter);
 
-// app.get('/', (req,res) => { 
+// app.get('/', (req,res) => {
 //     res.send("Hello World")
 // });
 
 app.get('/',
   jwt({ secret }),
   (req, res) => {
-    console.log(req.user);
     res.json({
-      message: `Hello ${req.user.username}! Anyone can see this!`
+      message: `Hello ${req.user.username}! Anyone can see this!`,
     });
   });
 
