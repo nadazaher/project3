@@ -41,7 +41,8 @@ module.exports = {
     return db.any(`
     SELECT COUNT(*) FROM favorites f
     JOIN products p ON f.product_id = p.id
-    WHERE p.company_id = $1`, id);
+    WHERE p.company_id = $1
+    ORDER BY f.id`, id);
   },
 
 };
