@@ -4,10 +4,22 @@ import PieChart from "react-svg-piechart"
 
 function FavoritesView(props) {
   return (
-    
     <div>
-      <div className="columns">
-        <div className="column">
+      <h1 className="favoritestitle">
+        My Favorite Products
+        </h1>
+    <div className="rows">
+        <div className="row">
+        <div className="pieinfo">
+          {
+            props.countFavorites.filter(favorite => favorite.length).map((favorite) =>
+              (<div className="stats" key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(2)}%</div>)
+            )
+          }
+        </div>
+        
+        <div className="row">
+        <div className="piechart">
         <PieChart
           data={props.favoritesStats}
           expandOnHover={true}
@@ -17,18 +29,11 @@ function FavoritesView(props) {
           strokeLinejoin="round"
           strokeWidth={1}
           viewBoxSize={25}
-        /></div>
-        <div className="column">
-          {
-            props.countFavorites.filter(favorite => favorite.length).map((favorite) =>
-              (<div key={favorite[0].name}>{favorite[0].name}:&nbsp;{((parseInt(favorite[0].count) / props.favorites.length) * 100).toFixed(2)}%</div>)
-            )
-          }
+        /></div></div>
         </div>
       </div>
-      <h1 className="favoritestitle">
-        My favorite products:
-        </h1>
+      <div>
+      
       <hr className="line"></hr>
       <ProductList
         filterFN={(product) => product.user_id === props.userInfo.id}
@@ -42,7 +47,8 @@ function FavoritesView(props) {
         products={props.favorites}
         userInfo={props.userInfo}
       />
-    </div>
+      </div>
+      </div>
   )
 }
 

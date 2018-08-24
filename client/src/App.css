@@ -13,6 +13,7 @@
   height: 5vh;
 }
 
+
 .navigation {
   height: 10vh;
   padding: 20px;
@@ -108,8 +109,7 @@
   font-weight: bold;
   font-size: 30px;
   color: #FFCB28;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -157,6 +157,20 @@
 }
 
 
+.piechart {
+  max-inline-size: 200px;
+  margin: auto;
+}
+.pieinfo {
+position: relative;  
+margin-bottom: 0px;
+margin-top: 10px;
+}
+
+.stats {
+  font-weight: bold;
+}
+
 .createbutton {
   height: 25px;
   font-size: 14px;
@@ -197,6 +211,7 @@
 .login p {
   margin-top: 0;
   margin-bottom: 0;
+  color: black;
 }
 
 /* The triangle form is achieved by a CSS hack */
