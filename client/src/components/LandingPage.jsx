@@ -13,7 +13,7 @@ function LandingPage(props) {
                 <div class="card-content  ">
                   <div class="media ">
                     <div class="media-content has-text-centered">
-                      <h1 class="title is-1 has-text-dark ">Who Makes My Product?</h1>
+                      <h1 class="title is-1 has-text-black ">Who Makes My Product?</h1>
                     </div>
                   </div>
 
