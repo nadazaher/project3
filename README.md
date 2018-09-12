@@ -32,6 +32,8 @@ We were curious to know who were the corporations behind our favorite products. 
 9) yarn install
 10) yarn start
 
+Deployed Link - http://big-ten.surge.sh/
+
 ## Initial ERD 
 ![project 3 erd](https://media.git.generalassemb.ly/user/14932/files/f4c24042-a3d3-11e8-93ef-e1e98ab7535c)
 
